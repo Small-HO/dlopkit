@@ -4,6 +4,19 @@ plugins {
     id 'maven-publish'
 }
 
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.github.Small-HO"
+                artifactId = "corekit"
+                version = "1.0"
+            }
+        }
+    }
+}
+
 android {
     compileSdk rootProject.ext.android.compileSdkVersion
 
@@ -32,17 +45,4 @@ android {
 
 dependencies {
     api project(":floatkit")
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.small'
-                artifactId = 'corekit'
-                version = '1.0'
-            }
-        }
-    }
 }

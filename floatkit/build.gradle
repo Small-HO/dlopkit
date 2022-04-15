@@ -4,6 +4,19 @@ plugins {
     id 'maven-publish'
 }
 
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.github.Small-HO"
+                artifactId = "floatkit"
+                version = "1.0"
+            }
+        }
+    }
+}
+
 android {
     compileSdk rootProject.ext.android.compileSdkVersion
 
@@ -40,17 +53,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.small'
-                artifactId = 'floatkit'
-                version = '1.0'
-            }
-        }
-    }
 }
