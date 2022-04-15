@@ -1,4 +1,4 @@
-package com.small.corekit.view
+package com.small.floatkit.view
 
 import android.annotation.SuppressLint
 import android.content.Context

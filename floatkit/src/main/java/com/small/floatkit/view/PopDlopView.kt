@@ -1,8 +1,8 @@
-package com.small.corekit.view
+package com.small.floatkit.view
 
 import android.content.Context
 import android.view.*
-import com.small.corekit.R
+import com.small.floatkit.R
 
 /**
  * Created by small-ho on 2022/03 10:27

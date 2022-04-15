@@ -1,7 +1,7 @@
-package com.small.corekit.manager
+package com.small.floatkit.manager
 
 import android.content.Context
-import com.small.corekit.view.PopDlopView
+import com.small.floatkit.view.PopDlopView
 
 /**
  * Created by small-ho on 2022/03 11:14

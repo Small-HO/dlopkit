@@ -1,4 +1,4 @@
-package com.small.corekit.view
+package com.small.floatkit.view
 
 import android.content.Context
 import android.view.View
