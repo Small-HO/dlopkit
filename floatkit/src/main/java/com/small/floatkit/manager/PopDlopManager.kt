@@ -1,6 +1,7 @@
 package com.small.floatkit.manager
 
 import android.content.Context
+import android.widget.Toast
 import com.small.floatkit.view.PopDlopView
 
 /**

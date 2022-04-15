@@ -2,4 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.small.floatkit">
 
+    <application>
+        <activity
+            android:name=".mvi.index.DlopActivity"
+            android:exported="false"
+            android:theme="@style/Theme.style"/>
+    </application>
+
 </manifest>

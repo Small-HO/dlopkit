@@ -10,9 +10,23 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            allowInsecureProtocol = true
+            url'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url  "https://nexus-sdk.cm253.com/repository/maven-public/"
+        }
     }
 }
 rootProject.name = "dlopkit"
 include ':app'
 include ':corekit'
 include ':floatkit'
+include ':libcommon'
