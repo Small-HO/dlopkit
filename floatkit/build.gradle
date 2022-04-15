@@ -1,21 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-//    id 'maven-publish'
 }
-
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId = "com.github.Small-HO.dlopkit"
-//            artifactId = "floatkit"
-//            version = rootProject.ext.android.versionName
-//            afterEvaluate {
-//                from(components["release"])
-//            }
-//        }
-//    }
-//}
 
 android {
     compileSdk rootProject.ext.android.compileSdkVersion
