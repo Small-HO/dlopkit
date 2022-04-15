@@ -11,13 +11,6 @@ ext {
     //  正式地址
     API_HOST_MAIN = "\"https://kyapp.xiaobaikaoyan.com/\""      //  App地址
 
-    //  仓库
-    jitpacks = [
-            name = "com.github.Small-HO",
-            corekit = "corekit",            //  合并库名称
-            floatkit = "floatkit"           //  悬浮框库名称
-    ]
-
     //  App相关版本控制
     android = [
             versionCode: 5,         //  版本号
