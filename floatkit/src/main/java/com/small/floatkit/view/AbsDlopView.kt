@@ -17,10 +17,10 @@ abstract class AbsDlopView: DlopView {
         try {
             val layout = onCreateView(context)
             val windowManager = windowManager(context)
-            val laoutParams = laoutParams()
-            windowManager.addView(layout, laoutParams)
+            val layoutParams = laoutParams()
+            windowManager.addView(layout, layoutParams)
             onViewCreated(layout)
-            layout.setOnTouchListener(setOnTouchListener(context, layout, windowManager, laoutParams))
+            layout.setOnTouchListener(setOnTouchListener(context, layout, windowManager, layoutParams))
         }catch (e: Exception) {
             e.printStackTrace()
         }

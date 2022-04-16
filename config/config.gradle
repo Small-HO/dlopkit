@@ -13,8 +13,8 @@ ext {
 
     //  App相关版本控制
     android = [
-            versionCode: 4,         //  版本号
-            versionName: "1.0.3",    //  版本名
+            versionCode: 5,         //  版本号
+            versionName: "1.0.4",    //  版本名
 
             minSdkVersion: 24,      //  支持SDK的最小版本
             targetSdkVersion: 32,   //  支持SDK的最高版本

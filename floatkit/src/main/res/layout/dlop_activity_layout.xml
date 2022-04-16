@@ -4,14 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".mvi.index.DlopActivity">
 
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="测试模式"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.small.libcommon.view.XScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:text="地址管理"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml">
+
+                    <com.ruffian.library.widget.RRadioButton
+                        android:id="@+id/release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawablePadding="4dp"
+                        android:text="正式环境"
+                        android:textColor="#4CAF50"
+                        android:textStyle="bold"
+                        app:icon_checked_left="@mipmap/dlop_check_dark_icon"
+                        app:icon_normal_left="@mipmap/dlop_check_icon" />
+
+                    <com.ruffian.library.widget.RRadioButton
+                        android:id="@+id/debug"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:button="@null"
+                        android:drawablePadding="4dp"
+                        android:text="测试环境"
+                        android:textColor="#FF5722"
+                        android:textStyle="bold"
+                        app:icon_checked_left="@mipmap/dlop_check_dark_icon"
+                        app:icon_normal_left="@mipmap/dlop_check_icon" />
+
+                    <com.ruffian.library.widget.RRadioButton
+                        android:id="@+id/local"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:button="@null"
+                        android:drawablePadding="4dp"
+                        android:text="本地环境"
+                        android:textColor="#03A9F4"
+                        android:textStyle="bold"
+                        app:icon_checked_left="@mipmap/dlop_check_dark_icon"
+                        app:icon_normal_left="@mipmap/dlop_check_icon" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/llConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自定义"
+                        android:textColor="#33073A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <com.ruffian.library.widget.REditText
+                        android:id="@+id/etHost"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/tvSave"
+                        android:layout_width="80dp"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="保存"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+
+                        app:background_normal="#8BC34A"
+                        app:corner_radius="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:text="网络管理"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/tvNetwork"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:button="@null"
+                    android:drawableTop="@drawable/dlop_image_gary_10_background"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:text="网络拦截"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+        </com.small.libcommon.view.XScrollView>
+
+    </LinearLayout>
+
 </layout>

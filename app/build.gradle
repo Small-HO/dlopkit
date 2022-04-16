@@ -18,8 +18,16 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            zipAlignEnabled true
+            buildConfigField("String","API_HOST",API_HOST_MAIN)
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            ext.enableCrashlytics = false
+            ext.alwaysUpdateBuildId = false
+            buildConfigField("String","API_HOST_MAIN",API_HOST_MAIN)
+            buildConfigField("String","API_HOST_DEV",API_HOST_DEV)
         }
     }
     compileOptions {
@@ -35,7 +43,6 @@ android {
 }
 
 dependencies {
-    implementation project(":corekit")
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'

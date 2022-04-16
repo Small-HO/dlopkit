@@ -37,4 +37,20 @@ dependencies {
     api "com.google.android.material:material:$component.material"
     api "androidx.appcompat:appcompat:$component.appcompat"
     api "androidx.constraintlayout:constraintlayout:$component.layout"
+    api "com.github.RuffianZhong:RWidgetHelper:$pthread.uiHelper"
+
+    //  lifecycle
+    api "androidx.lifecycle:lifecycle-extensions:$component.lifecycle"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$component.viewmodel"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$component.viewmodel"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$component.viewmodel"
+
+    // 网络
+    api "me.jessyan:retrofit-url-manager:$pthread.jessyan"
+
+    api "com.squareup.retrofit2:retrofit:$component.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$component.retrofit"
+    api "com.squareup.okhttp3:logging-interceptor:$component.logging"
+    api "org.conscrypt:conscrypt-android:$component.conscrypt"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$component.coroutines"
 }
