@@ -35,10 +35,11 @@ class MainViewModel: ViewModel() {
     /** 增量更新 */
     fun update() {
         Thread {
+            Log.i("------------>", "开始合并补丁文件...")
             val time = measureTimeMillis {
                 UpdateNativeUtils.patch(oldFile, patchFile, combineFile)
             }
-            Log.i("------------>", "增量更新耗时：$time")
+            Log.i("------------>", "合并补丁耗时：$time")
         }.start()
     }
 

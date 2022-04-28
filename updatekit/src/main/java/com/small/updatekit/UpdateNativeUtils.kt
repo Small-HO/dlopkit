@@ -11,9 +11,9 @@ object UpdateNativeUtils {
     }
 
     /** 生成补丁包 */
-    external fun diff(newPath: String, oldPath: String, patchPath: String): Int
+    external fun diff(newPath: String, oldPath: String, patchPath: String)
 
     /** 合并差分包 */
-    external fun patch(oldPath: String, patch: String, combine: String): Int
+    external fun patch(oldPath: String, patch: String, combine: String)
 
 }

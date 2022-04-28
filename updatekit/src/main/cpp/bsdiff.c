@@ -361,7 +361,7 @@ static int bz2_write(struct bsdiff_stream* stream, const void* buffer, int size)
     return 0;
 }
 
-int bsdiff_main(int argc,char *argv[])
+int diff_main(int argc,char *argv[])
 {
     int fd;
     int bz2err;

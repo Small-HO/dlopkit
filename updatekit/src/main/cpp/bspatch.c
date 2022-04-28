@@ -104,7 +104,7 @@ static int bz2_read(const struct bspatch_stream* stream, void* buffer, int lengt
     return 0;
 }
 
-int bspatch_main(int argc,char * argv[])
+int patch_main(int argc,char * argv[])
 {
     FILE * f;
     int fd;
