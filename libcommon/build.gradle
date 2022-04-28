@@ -44,6 +44,9 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$component.viewmodel"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$component.viewmodel"
     api "androidx.lifecycle:lifecycle-runtime-ktx:$component.viewmodel"
+    //  协程
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$component.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$component.coroutines"
 
     // 网络
     api "me.jessyan:retrofit-url-manager:$pthread.jessyan"

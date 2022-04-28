@@ -17,6 +17,7 @@ void loopDecoding(ANativeWindow *pWindow, AVFormatContext *pContext, AVCodecCont
 /** 1. 解封装 */
 void delidding(const char *audio_path, AVFormatContext *context) {
     //  打开视频文件
+    int ceshi = avformat_open_input(&context, audio_path, nullptr, nullptr);
     if (avformat_open_input(&context, audio_path, nullptr, nullptr) != 0) {
         return;
     }

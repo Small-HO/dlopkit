@@ -14,13 +14,10 @@ android {
         consumerProguardFiles "consumer-rules.pro"
         externalNativeBuild {
             cmake {
-                cppFlags '-frtti -fexceptions'
-                abiFilters "armeabi-v7a", "arm64-v8a", "x86"
+                cppFlags ''
             }
         }
-        ndk {
-            abiFilters "armeabi-v7a", "arm64-v8a", "x86"
-        }
+
     }
 
     buildTypes {
@@ -29,18 +26,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = '11'
-    }
     externalNativeBuild {
         cmake {
-            path file('src/main/cpp/CMakeLists.txt')
-            version '3.18.1'
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.18.1"
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
