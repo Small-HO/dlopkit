@@ -9,9 +9,9 @@ android开发测试工具
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
+1.  差分包生成与合并依赖地址：implementation 'com.github.Small-HO.dlopkit:updatekit:1.0.4' 
 3.  xxxx
+4.  xxxx
 
 #### 使用说明
 
