@@ -6,6 +6,7 @@ import android.view.SurfaceView
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
 import com.small.videokit.FFmpegNativeUtils.videoPlay
@@ -46,5 +47,10 @@ class MainActivity : AppCompatActivity() {
         update.setOnClickListener {
             viewModel.update()
         }
+
+        findViewById<Button>(R.id.bt_bold).setOnClickListener {
+            findViewById<RichEditor>(R.id.richEditor).setBold()
+        }
     }
+
 }

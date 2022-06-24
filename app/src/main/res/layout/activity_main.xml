@@ -4,62 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="地址切换" />
-
-        <Button
-            android:id="@+id/ceshi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="测试地址"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="测试音视频" />
-
-        <SurfaceView
-            android:id="@+id/sfv_player"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bt_play"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="播放" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地址切换" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="测试增量更新" />
+            <Button
+                android:id="@+id/ceshi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试地址"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/bt_patch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="生成差分包"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="测试音视频" />
 
-        <Button
-            android:id="@+id/bt_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="增量更新"
-            />
+            <SurfaceView
+                android:id="@+id/sfv_player"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/bt_play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="播放" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="测试增量更新" />
+
+            <Button
+                android:id="@+id/bt_patch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生成差分包"
+                />
+
+            <Button
+                android:id="@+id/bt_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="增量更新"
+                />
+
+            <com.small.editorkit.RichEditor
+                android:id="@+id/richEditor"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                />
+
+            <Button
+                android:id="@+id/bt_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加粗"
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>
