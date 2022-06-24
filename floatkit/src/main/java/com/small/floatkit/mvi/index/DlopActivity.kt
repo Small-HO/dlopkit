@@ -1,5 +1,6 @@
 package com.small.floatkit.mvi.index
 
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Lifecycle
@@ -12,6 +13,7 @@ import com.small.floatkit.databinding.DlopActivityLayoutBinding
 import com.small.libcommon.base.BaseVMActivity
 import com.small.libcommon.ktx.observeEvent
 import kotlinx.coroutines.launch
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 
 class DlopActivity : BaseVMActivity<DlopActivityLayoutBinding>() {
 
@@ -20,6 +22,12 @@ class DlopActivity : BaseVMActivity<DlopActivityLayoutBinding>() {
     private val viewModel by lazy { ViewModelProvider(this)[DlopViewModel::class.java] }
 
     override fun initLayout(): Int = R.layout.dlop_activity_layout
+
+    override fun initView(state: Bundle?) {
+        RetrofitUrlManager.getInstance().globalDomain?.let {
+            binding.tvHttp.text = getString(R.string.dlop_http,it)
+        }
+    }
 
     override fun initClick() {
         config?.let { http ->

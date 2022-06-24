@@ -3,7 +3,7 @@ package com.small.libcommon.base
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 
-/**
+/**x
  * Created by small-ho on 2022/04 17:10
  * title: 基础类处理
  */

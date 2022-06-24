@@ -1,8 +1,5 @@
 package com.small.dlopkit
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceView
@@ -21,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         PopDlopManager.init(this, DlopConfig().apply {
             http_dev = "http://www.baidu.com"
             http_main = "http://github.com"
@@ -35,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         val play = findViewById<Button>(R.id.bt_play)
         play.setOnClickListener {
             Thread {
-                videoPlay("http://cdn.ikaoyaner.com/xbky/course/video/2021-12-03/选择题押题1.mp4", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
-//                videoPlay("rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
+//                videoPlay("http://cdn.ikaoyaner.com/xbky/course/video/2021-12-03/选择题押题1.mp4", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
+                videoPlay("rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
             }.start()
         }
 
