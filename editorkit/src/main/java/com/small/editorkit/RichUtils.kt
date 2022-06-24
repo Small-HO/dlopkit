@@ -12,7 +12,7 @@ object RichUtils {
     /**
      * 截取富文本中的图片链接
      */
-    private fun returnImageUrlsFromHtml(content: String): ArrayList<String?> {
+    fun returnImageUrlsFromHtml(content: String): ArrayList<String?> {
         val imageSrcList: MutableList<String?> = ArrayList()
         if (TextUtils.isEmpty(content)) {
             return imageSrcList as ArrayList<String?>
@@ -32,7 +32,7 @@ object RichUtils {
     /**
      * 截取富文本中的纯文本内容
      */
-    private fun returnOnlyText(htmlStr: String): String {
+    fun returnOnlyText(htmlStr: String): String {
         return if (TextUtils.isEmpty(htmlStr)) {
             ""
         } else {
