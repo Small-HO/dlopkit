@@ -12,17 +12,21 @@ object SystemUtils {
 
     /** ip 地址获取 */
     fun getGateWay(): String {
-        val arr: Array<String>
-        try {
+        return try {
+            val arr: Array<String>
             val process = Runtime.getRuntime().exec("ip route list table 0")
             val input = BufferedReader(InputStreamReader(process.inputStream))
-            val string: String = input.readLine()
-            arr = string.split("\\s+".toRegex()).toTypedArray()
-            return arr[2]
+            val string: String? = input.readLine()
+            arr = string?.split("\\s+".toRegex())?.toTypedArray() ?: arrayOf()
+            if (arr.isEmpty()) {
+                "127.0.0.1"
+            } else {
+                arr[2]
+            }
         } catch (e: IOException) {
             e.printStackTrace()
+            "127.0.0.1"
         }
-        return "error"
     }
 
 }

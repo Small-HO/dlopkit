@@ -77,6 +77,12 @@
                 android:text="加粗"
                 />
 
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rvItem"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                />-->
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
