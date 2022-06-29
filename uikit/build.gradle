@@ -35,3 +35,9 @@ android {
         jvmTarget = '11'
     }
 }
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$component.appcompat"
+    implementation "androidx.recyclerview:recyclerview:$component.recycler"
+    implementation "androidx.constraintlayout:constraintlayout:$component.layout"
+}

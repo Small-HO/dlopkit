@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UiHelperActivity">
+
+    <data>
+        <variable
+            name="image"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.small.uikit.ui.view.TextView
+            android:id="@+id/tvText"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="测试"
+            app:background_normal="#3F51B5"
+            app:corner_radius="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.small.uikit.ui.view.Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:background_normal="#009688"
+            app:corner_radius="25dp"
+            />
+
+        <com.small.uikit.ui.view.ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:is_circle="true"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/ic_launcher"
+            />
+
+        <com.small.uikit.ui.layout.ConstraintLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:background_normal="#03A9F4"
+            app:corner_radius="50dp" />
+
+        <com.small.uikit.ui.layout.LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:background_normal="#00BCD4"
+            app:corner_radius="50dp"
+            />
+
+        <com.small.uikit.ui.layout.RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:background_normal="#F44336"
+            app:corner_radius="50dp"
+            />
+
+    </LinearLayout>
+
+</layout>

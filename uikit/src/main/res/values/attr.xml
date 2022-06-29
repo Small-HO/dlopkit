@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 圆角角度 -->
+    <attr name="corner_radius" format="dimension" />
+    <attr name="corner_radius_top_left" format="dimension" />
+    <attr name="corner_radius_top_right" format="dimension" />
+    <attr name="corner_radius_bottom_left" format="dimension" />
+    <attr name="corner_radius_bottom_right" format="dimension" />
+    <!-- 背景色 -->
+    <attr name="background_normal" format="color" />
+    <!-- 边框 -->
+    <attr name="border_width" format="dimension" />
+    <attr name="border_color" format="color" />
+
+    <!-- 基础属性 -->
+    <declare-styleable name="BaseView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- Button属性 -->
+    <declare-styleable name="Button">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- TextView属性 -->
+    <declare-styleable name="TextView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- ImageView属性 -->
+    <declare-styleable name="ImageView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <!-- 是否圆形 -->
+        <attr name="is_circle" format="boolean" />
+        <!-- 边框 -->
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <!-- LinearLayout属性 -->
+    <declare-styleable name="LinearLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- RelativeLayout属性 -->
+    <declare-styleable name="RelativeLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- ConstraintLayout属性 -->
+    <declare-styleable name="ConstraintLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+</resources>

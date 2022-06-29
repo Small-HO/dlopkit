@@ -1,16 +1,15 @@
 package com.small.dlopkit
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceView
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
-import com.small.uikit.ui.RecyclerView
 import com.small.videokit.FFmpegNativeUtils.videoPlay
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +19,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.btnUi).setOnClickListener {
+            startActivity(Intent(this,UiHelperActivity::class.java))
+        }
 
         PopDlopManager.init(this, DlopConfig().apply {
             http_dev = "http://www.baidu.com"
@@ -53,10 +56,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.bt_bold).setOnClickListener {
             findViewById<RichEditor>(R.id.richEditor).setBold()
         }
-
-//        val ceshi = findViewById<RecyclerView>(R.id.rvItem)
-//        ceshi.layoutManager = LinearLayoutManager(this)
-//        ceshi.adapter = null
     }
 
 }
