@@ -40,4 +40,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$component.appcompat"
     implementation "androidx.recyclerview:recyclerview:$component.recycler"
     implementation "androidx.constraintlayout:constraintlayout:$component.layout"
+    implementation "com.google.android.material:material:$component.material"
 }

@@ -23,6 +23,16 @@
         <attr name="background_normal" />
     </declare-styleable>
 
+    <!-- View属性 -->
+    <declare-styleable name="View">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
     <!-- Button属性 -->
     <declare-styleable name="Button">
         <attr name="corner_radius" />
@@ -79,6 +89,16 @@
 
     <!-- ConstraintLayout属性 -->
     <declare-styleable name="ConstraintLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+    </declare-styleable>
+
+    <!-- TabLayout属性 -->
+    <declare-styleable name="TabLayout">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />

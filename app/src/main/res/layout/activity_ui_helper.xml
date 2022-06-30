@@ -15,6 +15,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.small.uikit.ui.view.View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:corner_radius="25dp"
+            app:background_normal="#673AB7"
+            />
+
         <com.small.uikit.ui.view.TextView
             android:id="@+id/tvText"
             android:layout_width="50dp"
@@ -60,6 +67,11 @@
             android:layout_height="100dp"
             app:background_normal="#F44336"
             app:corner_radius="50dp"
+            />
+
+        <com.small.uikit.ui.layout.TabLayout
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             />
 
     </LinearLayout>
