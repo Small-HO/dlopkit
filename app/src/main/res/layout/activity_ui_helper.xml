@@ -47,8 +47,8 @@
             <com.small.uikit.ui.view.UiImageView
                 android:id="@+id/ivImage"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:is_circle="true"
+                android:layout_height="50dp"
+                app:corner_radius="14dp"
                 android:scaleType="centerCrop"
                 android:background="@mipmap/ic_launcher"
                 />

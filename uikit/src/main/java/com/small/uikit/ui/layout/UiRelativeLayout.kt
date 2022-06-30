@@ -1,57 +1,25 @@
 package com.small.uikit.ui.layout
 
 import android.content.Context
-import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import com.small.uikit.R
+import com.small.uikit.helper.BaseHelper
+import com.small.uikit.helper.UiHelper
 
 /**
  * Created by small-ho on 2022/06 10:08
  * title: 重定义LinearLayout样式
  */
-class UiRelativeLayout : RelativeLayout {
+class UiRelativeLayout : RelativeLayout , UiHelper<BaseHelper<*>> {
 
-    private var mBackgroundNormal = 0
-    private var mCornerRadius = -1
-    private var mCornerRadiusTopLeft = 0
-    private var mCornerRadiusTopRight = 0
-    private var mCornerRadiusBottomLeft = 0
-    private var mCornerRadiusBottomRight = 0
+    private var mHelper: BaseHelper<*>? = null
 
-    constructor(context: Context): super(context)
-    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
-        initAttributeSet(context, attrs)
-        initDrawableSet()
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        mHelper = BaseHelper(context, this, attrs)
     }
 
-    private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
-        if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiRelativeLayout)
-            mBackgroundNormal = typedArray.getColor(R.styleable.UiRelativeLayout_background_normal, mBackgroundNormal)
-            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius, mCornerRadius)
-            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_top_left, mCornerRadiusTopLeft)
-            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_top_right, mCornerRadiusTopRight)
-            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_bottom_right, mCornerRadiusBottomRight)
-            typedArray.recycle()
-        }
-    }
-
-    private fun initDrawableSet() {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.setColor(mBackgroundNormal)
-        if (mCornerRadius > 0) {
-            gradientDrawable.cornerRadius = mCornerRadius.toFloat()
-        } else {
-            gradientDrawable.cornerRadii = floatArrayOf(
-                mCornerRadiusTopLeft.toFloat(), mCornerRadiusTopLeft.toFloat(),
-                mCornerRadiusTopRight.toFloat(), mCornerRadiusTopRight.toFloat(),
-                mCornerRadiusBottomLeft.toFloat(), mCornerRadiusBottomLeft.toFloat(),
-                mCornerRadiusBottomRight.toFloat(), mCornerRadiusBottomRight.toFloat()
-            )
-        }
-        this.background = gradientDrawable
-    }
+    override var helper: BaseHelper<*>? = mHelper
 
 }

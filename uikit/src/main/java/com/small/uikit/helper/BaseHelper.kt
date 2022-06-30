@@ -3,7 +3,6 @@ package com.small.uikit.helper
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import com.small.uikit.R
 
@@ -12,7 +11,7 @@ import com.small.uikit.R
  * Created by small-ho on 2022/06 15:05
  * title: 基础帮助类
  */
-class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) {
+class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) : BaseHelperImpl {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1
