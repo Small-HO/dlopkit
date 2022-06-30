@@ -1,16 +1,16 @@
-package com.small.uikit.ui.view
+package com.small.uikit.ui.layout
 
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.view.View
+import android.widget.LinearLayout
 import com.small.uikit.R
 
 /**
- * Created by small-ho on 2022/06 10:02
- * title: 重定义textView样式
+ * Created by small-ho on 2022/06 10:03
+ * title: 重定义LinearLayout样式
  */
-class View : View {
+class UiLinearLayout : LinearLayout {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1
@@ -19,21 +19,21 @@ class View : View {
     private var mCornerRadiusBottomLeft = 0
     private var mCornerRadiusBottomRight = 0
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(context: Context): super(context)
+    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
         initAttributeSet(context, attrs)
         initDrawableSet()
     }
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
         if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.View)
-            mBackgroundNormal = typedArray.getColor(R.styleable.View_background_normal, mBackgroundNormal)
-            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.View_corner_radius, mCornerRadius)
-            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.View_corner_radius_top_left, mCornerRadiusTopLeft)
-            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.View_corner_radius_top_right, mCornerRadiusTopRight)
-            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.View_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.View_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiLinearLayout)
+            mBackgroundNormal = typedArray.getColor(R.styleable.UiLinearLayout_background_normal, mBackgroundNormal)
+            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiLinearLayout_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiLinearLayout_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiLinearLayout_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiLinearLayout_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiLinearLayout_corner_radius_bottom_right, mCornerRadiusBottomRight)
             typedArray.recycle()
         }
     }
@@ -53,4 +53,5 @@ class View : View {
         }
         this.background = gradientDrawable
     }
+
 }

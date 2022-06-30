@@ -24,7 +24,7 @@
     </declare-styleable>
 
     <!-- View属性 -->
-    <declare-styleable name="View">
+    <declare-styleable name="UiView">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -34,7 +34,7 @@
     </declare-styleable>
 
     <!-- Button属性 -->
-    <declare-styleable name="Button">
+    <declare-styleable name="UiButton">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -44,7 +44,7 @@
     </declare-styleable>
 
     <!-- TextView属性 -->
-    <declare-styleable name="TextView">
+    <declare-styleable name="UiTextView">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -54,7 +54,7 @@
     </declare-styleable>
 
     <!-- ImageView属性 -->
-    <declare-styleable name="ImageView">
+    <declare-styleable name="UiImageView">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -68,7 +68,7 @@
     </declare-styleable>
 
     <!-- LinearLayout属性 -->
-    <declare-styleable name="LinearLayout">
+    <declare-styleable name="UiLinearLayout">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -78,7 +78,7 @@
     </declare-styleable>
 
     <!-- RelativeLayout属性 -->
-    <declare-styleable name="RelativeLayout">
+    <declare-styleable name="UiRelativeLayout">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -88,7 +88,7 @@
     </declare-styleable>
 
     <!-- ConstraintLayout属性 -->
-    <declare-styleable name="ConstraintLayout">
+    <declare-styleable name="UiConstraintLayout">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />
@@ -98,7 +98,7 @@
     </declare-styleable>
 
     <!-- TabLayout属性 -->
-    <declare-styleable name="TabLayout">
+    <declare-styleable name="UiTabLayout">
         <attr name="corner_radius" />
         <attr name="corner_radius_top_left" />
         <attr name="corner_radius_top_right" />

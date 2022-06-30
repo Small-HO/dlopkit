@@ -10,7 +10,7 @@ import com.small.uikit.R
  * Created by small-ho on 2022/06 10:14
  * title: 重定义Button样式
  */
-class Button : AppCompatButton {
+class UiButton : AppCompatButton {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1
@@ -27,13 +27,13 @@ class Button : AppCompatButton {
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
         if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Button)
-            mBackgroundNormal = typedArray.getColor(R.styleable.Button_background_normal, mBackgroundNormal)
-            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.Button_corner_radius, mCornerRadius)
-            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.Button_corner_radius_top_left, mCornerRadiusTopLeft)
-            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.Button_corner_radius_top_right, mCornerRadiusTopRight)
-            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.Button_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.Button_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiButton)
+            mBackgroundNormal = typedArray.getColor(R.styleable.UiButton_background_normal, mBackgroundNormal)
+            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiButton_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiButton_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiButton_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiButton_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiButton_corner_radius_bottom_right, mCornerRadiusBottomRight)
             typedArray.recycle()
         }
     }

@@ -3,14 +3,14 @@ package com.small.uikit.ui.layout
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import com.google.android.material.tabs.TabLayout
+import android.widget.RelativeLayout
 import com.small.uikit.R
 
 /**
- * Created by small-ho on 2022/06 10:10
- * title:
+ * Created by small-ho on 2022/06 10:08
+ * title: 重定义LinearLayout样式
  */
-class TabLayout : TabLayout {
+class UiRelativeLayout : RelativeLayout {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1
@@ -27,13 +27,13 @@ class TabLayout : TabLayout {
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
         if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TabLayout)
-            mBackgroundNormal = typedArray.getColor(R.styleable.TabLayout_background_normal, mBackgroundNormal)
-            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.TabLayout_corner_radius, mCornerRadius)
-            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.TabLayout_corner_radius_top_left, mCornerRadiusTopLeft)
-            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.TabLayout_corner_radius_top_right, mCornerRadiusTopRight)
-            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.TabLayout_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.TabLayout_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiRelativeLayout)
+            mBackgroundNormal = typedArray.getColor(R.styleable.UiRelativeLayout_background_normal, mBackgroundNormal)
+            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiRelativeLayout_corner_radius_bottom_right, mCornerRadiusBottomRight)
             typedArray.recycle()
         }
     }
@@ -53,4 +53,5 @@ class TabLayout : TabLayout {
         }
         this.background = gradientDrawable
     }
+
 }
