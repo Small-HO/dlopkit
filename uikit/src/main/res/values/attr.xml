@@ -21,6 +21,9 @@
         <attr name="corner_radius_bottom_left" />
         <attr name="corner_radius_bottom_right" />
         <attr name="background_normal" />
+        <!-- 边框 -->
+        <attr name="border_width" />
+        <attr name="border_color" />
     </declare-styleable>
 
     <!-- ImageView属性 -->

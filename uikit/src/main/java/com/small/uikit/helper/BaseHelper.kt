@@ -1,6 +1,7 @@
 package com.small.uikit.helper
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
@@ -20,6 +21,9 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
     private var mCornerRadiusBottomLeft = 0
     private var mCornerRadiusBottomRight = 0
 
+    private var mBorderWidth = 0
+    private var mBorderColor = 0
+
     init {
         initAttributeSet(context, attrs)
         initDrawableSet()
@@ -36,23 +40,30 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
         mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
         mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
         mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
+
+        mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
+        mBorderColor = typedArray.getColor(R.styleable.BaseView_border_color, mBorderColor)
         typedArray.recycle()
     }
 
     private fun initDrawableSet() {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.setColor(mBackgroundNormal)
+        val shape = GradientDrawable()
+        //  颜色
+        shape.setColor(mBackgroundNormal)
+        //  角度
         if (mCornerRadius > 0) {
-            gradientDrawable.cornerRadius = mCornerRadius.toFloat()
+            shape.cornerRadius = mCornerRadius.toFloat()
         } else {
-            gradientDrawable.cornerRadii = floatArrayOf(
+            shape.cornerRadii = floatArrayOf(
                 mCornerRadiusTopLeft.toFloat(), mCornerRadiusTopLeft.toFloat(),
                 mCornerRadiusTopRight.toFloat(), mCornerRadiusTopRight.toFloat(),
                 mCornerRadiusBottomLeft.toFloat(), mCornerRadiusBottomLeft.toFloat(),
                 mCornerRadiusBottomRight.toFloat(), mCornerRadiusBottomRight.toFloat()
             )
         }
-        view.background = gradientDrawable
+        //  边框
+        shape.setStroke(mBorderWidth, mBorderColor)
+        view.background = shape
     }
 
 }

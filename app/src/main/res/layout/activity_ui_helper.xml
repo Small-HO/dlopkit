@@ -24,6 +24,8 @@
                 android:layout_height="50dp"
                 app:corner_radius="25dp"
                 app:background_normal="#673AB7"
+                app:border_width="3dp"
+                app:border_color="#03A9F4"
                 />
 
             <com.small.uikit.ui.view.UiTextView
@@ -47,10 +49,12 @@
             <com.small.uikit.ui.view.UiImageView
                 android:id="@+id/ivImage"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                app:corner_radius="14dp"
+                android:layout_height="100dp"
+                app:border_color="#2196F3"
+                app:border_width="2dp"
+                app:is_circle="true"
                 android:scaleType="centerCrop"
-                android:background="@mipmap/ic_launcher"
+                android:src="@mipmap/ic_launcher"
                 />
 
             <com.small.uikit.ui.layout.UiConstraintLayout
