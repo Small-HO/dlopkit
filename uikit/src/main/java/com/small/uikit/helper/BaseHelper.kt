@@ -1,7 +1,6 @@
 package com.small.uikit.helper
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
