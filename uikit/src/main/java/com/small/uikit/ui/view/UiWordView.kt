@@ -108,7 +108,7 @@ class UiWordView : AppCompatTextView {
     }
 
     /** 清除操作 */
-    internal fun clear() {
+    fun clear() {
         mString?.let {
             it.removeSpan(bold)
             it.removeSpan(textColor)
