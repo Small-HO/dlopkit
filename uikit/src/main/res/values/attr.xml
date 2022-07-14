@@ -40,4 +40,23 @@
         <attr name="border_color" />
     </declare-styleable>
 
+    <!-- WordView属性 -->
+    <declare-styleable name="UiWordView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <!-- 边框 -->
+        <attr name="border_width" />
+        <attr name="border_color" />
+        <!-- 多颜色 -->
+        <attr name="is_check" format="boolean" />
+        <attr name="error_color" format="reference|color" />
+        <attr name="succeed_color" format="reference|color" />
+        <attr name="error_text" format="string" />
+        <attr name="succeed_text" format="string" />
+    </declare-styleable>
+
 </resources>

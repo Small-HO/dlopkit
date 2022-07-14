@@ -33,13 +33,15 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
             return
         }
         val typedArray = view.context.obtainStyledAttributes(attrs, R.styleable.BaseView)
+        //  背景
         mBackgroundNormal = typedArray.getColor(R.styleable.BaseView_background_normal, mBackgroundNormal)
+        //  角度
         mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius, mCornerRadius)
         mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_left, mCornerRadiusTopLeft)
         mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
         mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
         mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
-
+        //  边框
         mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
         mBorderColor = typedArray.getColor(R.styleable.BaseView_border_color, mBorderColor)
         typedArray.recycle()

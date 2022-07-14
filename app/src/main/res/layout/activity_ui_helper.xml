@@ -19,6 +19,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.small.uikit.ui.view.UiWordView
+                android:id="@+id/word"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                app:is_check="true"
+                />
+
             <com.small.uikit.ui.view.UiView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
