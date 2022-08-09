@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import com.small.uikit.R
 import com.small.uikit.helper.DrawableHelper
+import kotlin.math.ceil
 
 /**
  * Created by small-ho on 2022/06 10:19
@@ -146,4 +147,14 @@ class UiImageView : AppCompatImageView {
         return DrawableHelper.fromDrawable(d)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val drawable = drawable
+        if (drawable != null) {
+            val width = MeasureSpec.getSize(widthMeasureSpec)
+            val height = ceil(width.toDouble() * drawable.intrinsicHeight.toDouble() / drawable.intrinsicWidth.toDouble()).toInt()
+            setMeasuredDimension(width, height)
+        }else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        }
+    }
 }

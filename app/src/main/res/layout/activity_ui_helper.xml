@@ -19,6 +19,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.small.uikit.ui.view.UiRecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_empty="@layout/activity_ui_empty_layout"
+                tools:listitem="@layout/activity_ui_item_layout"
+                tools:itemCount="1"
+                />
+
             <com.small.uikit.ui.view.UiWordView
                 android:id="@+id/word"
                 android:layout_width="match_parent"

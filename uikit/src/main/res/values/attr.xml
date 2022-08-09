@@ -59,4 +59,9 @@
         <attr name="succeed_text" format="string" />
     </declare-styleable>
 
+    <!-- RecyclerView属性 -->
+    <declare-styleable name="UiRecyclerView">
+        <attr name="layout_empty" format="reference" />
+    </declare-styleable>
+
 </resources>
