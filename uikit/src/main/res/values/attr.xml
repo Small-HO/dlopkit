@@ -59,6 +59,21 @@
         <attr name="succeed_text" format="string" />
     </declare-styleable>
 
+    <!-- ProgressBar属性 -->
+    <declare-styleable name="UiProgressBar">
+        <!-- 类型 0：圆形 1：条形 -->
+        <attr name="bar_style" format="integer" />
+        <!-- 进度条 -->
+        <attr name="bar_width" format="dimension" />
+        <attr name="bar_background" format="color" />
+        <attr name="bar_color" format="color" />
+        <attr name="bar_max" format="integer" />
+        <attr name="bar_num" format="integer" />
+        <!-- 文本 -->
+        <attr name="bar_text_color" format="color" />
+        <attr name="bar_text_size" format="dimension" />
+    </declare-styleable>
+
     <!-- RecyclerView属性 -->
     <declare-styleable name="UiRecyclerView">
         <attr name="layout_empty" format="reference" />

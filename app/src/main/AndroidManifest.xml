@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dlopkit">
         <activity
+            android:name=".MultiActivity"
+            android:exported="false" />
+        <activity
             android:name=".UiHelperActivity"
             android:exported="false" />
         <activity

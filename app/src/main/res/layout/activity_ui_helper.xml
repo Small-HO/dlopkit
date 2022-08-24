@@ -5,6 +5,7 @@
     tools:context=".UiHelperActivity">
 
     <data>
+
         <variable
             name="image"
             type="String" />
@@ -19,32 +20,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.small.uikit.ui.view.UiRecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_empty="@layout/activity_ui_empty_layout"
-                tools:listitem="@layout/activity_ui_item_layout"
-                tools:itemCount="1"
-                />
-
             <com.small.uikit.ui.view.UiWordView
                 android:id="@+id/word"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
                 android:textSize="18sp"
-                app:is_check="true"
+                app:is_check="true" />
+
+            <com.small.uikit.ui.view.UiProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:bar_background="#FFEB3B"
+                app:bar_color="#FF5722"
+                app:bar_width="5dp"
+                app:bar_max="360"
+                app:bar_num="300"
+                app:bar_text_size="4sp"
+                app:bar_text_color="#2196F3"
                 />
 
             <com.small.uikit.ui.view.UiView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                app:corner_radius="25dp"
                 app:background_normal="#673AB7"
-                app:border_width="3dp"
                 app:border_color="#03A9F4"
-                />
+                app:border_width="3dp"
+                app:corner_radius="25dp" />
 
             <com.small.uikit.ui.view.UiTextView
                 android:id="@+id/tvText"
@@ -61,19 +63,17 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:background_normal="#009688"
-                app:corner_radius="25dp"
-                />
+                app:corner_radius="25dp" />
 
             <com.small.uikit.ui.view.UiImageView
                 android:id="@+id/ivImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:border_color="#2196F3"
-                app:border_width="2dp"
-                app:is_circle="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/ic_launcher"
-                />
+                app:border_color="#2196F3"
+                app:border_width="2dp"
+                app:is_circle="true" />
 
             <com.small.uikit.ui.layout.UiConstraintLayout
                 android:layout_width="100dp"
@@ -85,22 +85,19 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:background_normal="#00BCD4"
-                app:corner_radius="50dp"
-                />
+                app:corner_radius="50dp" />
 
             <com.small.uikit.ui.layout.UiRelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:background_normal="#F44336"
-                app:corner_radius="50dp"
-                />
+                app:corner_radius="50dp" />
 
             <com.small.uikit.ui.layout.UiTabLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:corner_radius="50dp"
                 app:background_normal="#673AB7"
-                />
+                app:corner_radius="50dp" />
 
         </LinearLayout>
 

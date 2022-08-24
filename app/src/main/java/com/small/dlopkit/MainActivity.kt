@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,UiHelperActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btnMulti).setOnClickListener {
+            startActivity(Intent(this,MultiActivity::class.java))
+        }
+
         PopDlopManager.init(this, DlopConfig().apply {
             http_dev = "http://www.baidu.com"
             http_main = "http://github.com"
