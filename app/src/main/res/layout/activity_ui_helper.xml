@@ -6,14 +6,12 @@
 
     <data>
 
-        <variable
-            name="image"
-            type="String" />
+        <variable name="image" type="String" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,12 +31,11 @@
                 android:layout_height="80dp"
                 app:bar_background="#FFEB3B"
                 app:bar_color="#FF5722"
-                app:bar_width="5dp"
                 app:bar_max="360"
                 app:bar_num="300"
-                app:bar_text_size="4sp"
                 app:bar_text_color="#2196F3"
-                />
+                app:bar_text_size="4sp"
+                app:bar_width="5dp" />
 
             <com.small.uikit.ui.view.UiView
                 android:layout_width="50dp"
@@ -101,6 +98,6 @@
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

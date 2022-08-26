@@ -59,6 +59,14 @@
         <attr name="succeed_text" format="string" />
     </declare-styleable>
 
+    <!-- SplitView属性 -->
+    <declare-styleable name="UiSplitView">
+        <!-- 手柄ID -->
+        <attr name="view_id" format="reference" />
+        <!-- 比例 -->
+        <attr name="view_ratio" format="float" />
+    </declare-styleable>
+
     <!-- ProgressBar属性 -->
     <declare-styleable name="UiProgressBar">
         <!-- 类型 0：圆形 1：条形 -->
