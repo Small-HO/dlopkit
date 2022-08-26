@@ -65,7 +65,7 @@ class UiSplitView : ViewGroup , View.OnTouchListener {
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        mTop?.let { it.layout(0, t, 0 + it.measuredWidth, 0 + it.measuredHeight) }
+        mTop?.let { it.layout(0, 0, 0 + it.measuredWidth, 0 + it.measuredHeight) }
         mMid?.let { it.layout(0, 0 + mSplitHeight - it.measuredHeight, 0 + it.measuredWidth, 0 + mSplitHeight) }
         mBottom?.let { it.layout(0, 0 + mSplitHeight, 0 + it.measuredWidth, 0 + mSplitHeight + it.measuredHeight) }
     }
