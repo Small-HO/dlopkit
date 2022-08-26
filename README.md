@@ -9,9 +9,9 @@ android开发测试工具
 
 #### 安装教程
 
-1.  差分包生成与合并依赖地址：implementation 'com.github.Small-HO.dlopkit:updatekit:1.2.5' 
-2.  自定义ui控件依赖地址：implementation 'com.github.Small-HO.dlopkit:uikit:1.2.5' 
-3.  网络请求地址切换依赖：implementation 'com.github.Small-HO.dlopkit:floatkit:1.2.5'
+1.  差分包生成与合并依赖地址：implementation 'com.github.Small-HO.dlopkit:updatekit:1.2.6' 
+2.  自定义ui控件依赖地址：implementation 'com.github.Small-HO.dlopkit:uikit:1.2.6' 
+3.  网络请求地址切换依赖：implementation 'com.github.Small-HO.dlopkit:floatkit:1.2.6'
 
 #### 自定义UI控件说明
 
