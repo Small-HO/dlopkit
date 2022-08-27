@@ -18,6 +18,8 @@ class UiProgressBar : View {
 
     private var mStyle = 0          // 控件类型 0：圆形 1：条形
 
+    private var mCornerRadius = -1  // 角度
+
     private var mStrokeWidth = 6    // 画笔进度宽度
     private var mBarBgColor = 0     // 进度条背景色
     private var mBarColor = 0       // 进度条填充色
@@ -27,13 +29,19 @@ class UiProgressBar : View {
     private var mBarNum = 0         // 进度
 
     private var mPaintBack: Paint? = null   // 背景色画笔
-    private var mPaint: Paint? = null       // 填充色画笔
+    private var mPaint: Paint? = null       // 进度画笔
     private var mPaintText: Paint? = null   // 文本画笔
+
+    private var rectFBg: RectF? = null       // 背景
+    private var rectFProgress: RectF? = null // 进度背景
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         initAttributeSet(context, attrs)
-        initPaintSet()
+        when(mStyle) {
+            0 -> initPaintSet()
+            1 -> initRectFSet()
+        }
     }
 
     private fun initAttributeSet(context: Context?, attrs: AttributeSet?) {
@@ -43,6 +51,8 @@ class UiProgressBar : View {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiProgressBar)
         // 类型
         mStyle = typedArray.getInteger(R.styleable.UiProgressBar_bar_style, mStyle)
+        // 角度
+        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiProgressBar_corner_radius, mCornerRadius)
         // 进度条
         mStrokeWidth = typedArray.getDimensionPixelOffset(R.styleable.UiProgressBar_bar_width, mStrokeWidth)
         mBarBgColor = typedArray.getColor(R.styleable.UiProgressBar_bar_background, mBarBgColor)
@@ -56,6 +66,7 @@ class UiProgressBar : View {
         typedArray.recycle()
     }
 
+    /** 圆形进度条 */
     private fun initPaintSet() {
         mPaintBack = Paint(Paint.ANTI_ALIAS_FLAG)
         mPaintBack?.let {
@@ -70,6 +81,7 @@ class UiProgressBar : View {
             it.color = mBarColor
             it.strokeWidth = mStrokeWidth.toFloat()
             it.style = Paint.Style.STROKE
+            it.strokeCap = Paint.Cap.ROUND
         }
         if (mTextSize != 0) {
             mPaintText = Paint()
@@ -82,9 +94,19 @@ class UiProgressBar : View {
         }
     }
 
+    /** 条形进度条 */
+    private fun initRectFSet() {
+        rectFBg = RectF(0F, 0F, 0F, height.toFloat())
+        rectFProgress = RectF(0F, 0F, 0F, height.toFloat())
+        mPaint = Paint()
+        mPaintBack = Paint()
+        //设置抗锯齿
+        mPaint?.isAntiAlias = true
+    }
+
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        // 绘制背景矩形
+        // 绘制背景
         drawBack(canvas)
         // 绘制进度
         drawProgress(canvas)
@@ -98,6 +120,30 @@ class UiProgressBar : View {
                 val rectF = RectF(mStrokeWidth.toFloat(), mStrokeWidth.toFloat(), (width - mStrokeWidth).toFloat(), (height - mStrokeWidth).toFloat())
                 mPaintBack?.let { canvas?.drawArc(rectF, -90F, 360F, false, it) }
             }
+            1 -> {
+                mPaintBack?.shader = null
+                mPaintBack?.color = mBarBgColor
+                rectFBg?.right = width.toFloat()
+                if (height != 0) {
+                    val top = (height / 2).toFloat() - (mStrokeWidth / 2).toFloat()
+                    if (top <= 0) {
+                        rectFBg?.top = 0F
+                    }else {
+                        rectFBg?.top = top
+                    }
+                    val bottom = (height / 2).toFloat() + (mStrokeWidth / 2).toFloat()
+                    if (bottom >= height) {
+                        rectFBg?.bottom = height.toFloat()
+                    }else {
+                        rectFBg?.bottom = bottom
+                    }
+                }
+                if (mCornerRadius > 0) {
+                    mPaintBack?.let { rectFBg?.let { it1 -> canvas?.drawRoundRect(it1, mCornerRadius.toFloat(), mCornerRadius.toFloat(), it) } }
+                }else {
+                    mPaintBack?.let { rectFBg?.let { it1 -> canvas?.drawRoundRect(it1, 0F, 0F, it) } }
+                }
+            }
         }
     }
 
@@ -105,7 +151,30 @@ class UiProgressBar : View {
         when (mStyle) {
             0 -> {
                 val rectF = RectF(mStrokeWidth.toFloat(), mStrokeWidth.toFloat(), (width - mStrokeWidth).toFloat(), (height - mStrokeWidth).toFloat())
-                mPaint?.let { canvas?.drawArc(rectF, -90F, mBarNum.toFloat() / mBarMax.toFloat() * 360F, false, it)
+                mPaint?.let { canvas?.drawArc(rectF, -90F, mBarNum.toFloat() / mBarMax.toFloat() * 360F, false, it) }
+            }
+            1 -> {
+                mPaint?.shader = null
+                mPaint?.color = mBarColor
+                rectFProgress?.right = width.toFloat() * (mBarNum.toFloat() / mBarMax.toFloat())
+                if (height != 0) {
+                    val top = (height / 2).toFloat() - (mStrokeWidth / 2).toFloat()
+                    if (top <= 0) {
+                        rectFProgress?.top = 0F
+                    }else {
+                        rectFProgress?.top = top
+                    }
+                }
+                val bottom = (height / 2).toFloat() + (mStrokeWidth / 2).toFloat()
+                if (bottom >= height) {
+                    rectFProgress?.bottom = height.toFloat()
+                }else {
+                    rectFProgress?.bottom = bottom
+                }
+                if (mCornerRadius > 0) {
+                    mPaint?.let { rectFProgress?.let { it1 -> canvas?.drawRoundRect(it1, mCornerRadius.toFloat(), mCornerRadius.toFloat(), it) } }
+                }else {
+                    mPaint?.let { rectFProgress?.let { it1 -> canvas?.drawRoundRect(it1, 0F, 0F, it) } }
                 }
             }
         }

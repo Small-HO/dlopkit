@@ -21,7 +21,7 @@
             <com.small.uikit.ui.view.UiWordView
                 android:id="@+id/word"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:textSize="18sp"
                 app:is_check="true" />
@@ -32,10 +32,23 @@
                 app:bar_background="#FFEB3B"
                 app:bar_color="#FF5722"
                 app:bar_max="360"
-                app:bar_num="300"
+                app:bar_num="350"
                 app:bar_text_color="#2196F3"
                 app:bar_text_size="4sp"
                 app:bar_width="5dp" />
+
+            <com.small.uikit.ui.view.UiProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:bar_background="#FFEB3B"
+                app:bar_color="#FF5722"
+                app:bar_max="100"
+                app:bar_num="20"
+                app:bar_width="5dp"
+                app:bar_style="1"
+                app:corner_radius="5dp"
+                android:background="#03A9F4"
+                />
 
             <com.small.uikit.ui.view.UiView
                 android:layout_width="50dp"

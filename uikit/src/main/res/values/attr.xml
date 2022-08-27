@@ -69,6 +69,8 @@
 
     <!-- ProgressBar属性 -->
     <declare-styleable name="UiProgressBar">
+        <!-- 条形圆角 -->
+        <attr name="corner_radius" />
         <!-- 类型 0：圆形 1：条形 -->
         <attr name="bar_style" format="integer" />
         <!-- 进度条 -->
