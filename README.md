@@ -9,6 +9,10 @@ android开发辅助工具
 2.  自定义ui控件依赖地址：implementation 'com.github.Small-HO.dlopkit:uikit:1.2.9' 
 3.  网络请求地址切换依赖：implementation 'com.github.Small-HO.dlopkit:floatkit:1.2.9'
 
+#### 控件演示
+
+![图1](https://github.com/Small-HO/dlopkit/blob/main/images/1.jpg)
+
 #### 自定义UI控件说明
 
 1. 自定义UiView、UiTextView、UiButton、UiTabLayout、UiRelativeLayout、UiLinearLayout、UiConstraintLayout、UiImageView可定义圆角
