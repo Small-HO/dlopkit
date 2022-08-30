@@ -11,7 +11,7 @@ android开发辅助工具
 
 #### 控件演示
 
-![图1](<img src="https://github.com/Small-HO/dlopkit/blob/main/images/1.jpg" width = "200" height = "300" alt="" align=center />)
+<img src="https://github.com/Small-HO/dlopkit/blob/main/images/1.jpg" width = "200" height = "300" alt="图1" align=center />
 
 #### 自定义UI控件说明
 
