@@ -58,8 +58,8 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
             shape.cornerRadii = floatArrayOf(
                 mCornerRadiusTopLeft.toFloat(), mCornerRadiusTopLeft.toFloat(),
                 mCornerRadiusTopRight.toFloat(), mCornerRadiusTopRight.toFloat(),
-                mCornerRadiusBottomLeft.toFloat(), mCornerRadiusBottomLeft.toFloat(),
-                mCornerRadiusBottomRight.toFloat(), mCornerRadiusBottomRight.toFloat()
+                mCornerRadiusBottomRight.toFloat(), mCornerRadiusBottomRight.toFloat(),
+                mCornerRadiusBottomLeft.toFloat(), mCornerRadiusBottomLeft.toFloat()
             )
         }
         //  边框
