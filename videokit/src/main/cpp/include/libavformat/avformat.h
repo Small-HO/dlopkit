@@ -1027,7 +1027,7 @@ typedef struct AVStream {
      *             avformat_find_stream_info().
      * - muxing: May be set by the caller before avformat_write_header().
      */
-    AVRational *avg_frame_rate;
+    AVRational avg_frame_rate;
 
     /**
      * For streams with AV_DISPOSITION_ATTACHED_PIC disposition, this packet

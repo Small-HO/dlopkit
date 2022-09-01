@@ -14,4 +14,6 @@ object FFmpegNativeUtils {
 
     external fun videoPlay(path: String, surface: Surface)
 
+    external fun startVideo(path: String, surface: Surface)
+
 }

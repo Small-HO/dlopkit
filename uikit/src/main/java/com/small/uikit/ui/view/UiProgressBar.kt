@@ -209,4 +209,17 @@ class UiProgressBar : View {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp.toFloat(), resources.displayMetrics).toInt()
     }
 
+    /** 设置最大阈值 */
+    fun setBarMax(max: Int) {
+        this.mBarMax = max
+        requestLayout()
+        invalidate()
+    }
+
+    /** 设置进度 */
+    fun setBarNum(num: Int) {
+        this.mBarNum = num
+        requestLayout()
+        invalidate()
+    }
 }
