@@ -2,6 +2,7 @@ package com.small.uikit.ui.view
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.text.*
@@ -33,6 +34,7 @@ class UiWordView : AppCompatTextView {
     private var mBorderColor = 0
 
     private var mIsCheck = false
+    private var mChoiceType = false
     private var mErrorColor = 0
     private var mSucceedColor = 0
     private var mErrorText: String? = null
@@ -68,8 +70,11 @@ class UiWordView : AppCompatTextView {
         //  边框
         mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.UiWordView_border_width, mBorderWidth)
         mBorderColor = typedArray.getColor(R.styleable.UiWordView_border_color, mBorderColor)
-        //  多颜色
+        //  开启取词
         mIsCheck = typedArray.getBoolean(R.styleable.UiWordView_is_check, mIsCheck)
+        //  开启多选
+        mChoiceType = typedArray.getBoolean(R.styleable.UiWordView_choice_type, mChoiceType)
+        //  多颜色
         mErrorColor = typedArray.getColor(R.styleable.UiWordView_error_color, mErrorColor)
         mSucceedColor = typedArray.getColor(R.styleable.UiWordView_succeed_color, mSucceedColor)
         mErrorText = typedArray.getString(R.styleable.UiWordView_error_text)
@@ -116,7 +121,7 @@ class UiWordView : AppCompatTextView {
             super.setText(mString, mType)
         }
         mMap.clear()
-        mWordClickListener?.let { it("", 0, 0) }
+        mWordClickListener?.let { it("", 0, 0, intArrayOf(), this) }
     }
 
     private fun initTextColor(text: CharSequence?, string: SpannableString, type: BufferType?) {
@@ -146,8 +151,8 @@ class UiWordView : AppCompatTextView {
 
 
 
-    private var mWordClickListener: ((String, Int, Int) -> Unit)? = null
-    fun setOnWordClickListener(listener: (String, Int, Int) -> Unit) { this.mWordClickListener = listener }
+    private var mWordClickListener: ((String, Int, Int, IntArray, TextView) -> Unit)? = null
+    fun setOnWordClickListener(listener: (String, Int, Int, IntArray, TextView) -> Unit) { this.mWordClickListener = listener }
 
     private fun getClickableSpan(string: SpannableString, type: BufferType?): ClickableSpan {
         return object : ClickableSpan() {
@@ -158,14 +163,17 @@ class UiWordView : AppCompatTextView {
                 if (TextUtils.isEmpty(text) || start == -1 || end == -1) {
                     return
                 }
-                setSelectedSpan(tv,string, type)
+                val array = IntArray(4)
+                measurePosition(this, widget, array)
+                if (!mChoiceType) { mMap.clear() }
+                setSelectedSpan(tv,string, type, array)
             }
             override fun updateDrawState(ds: TextPaint) {}
         }
     }
 
     /** 设置点击颜色 */
-    private fun setSelectedSpan(tv: TextView, string: SpannableString, type: BufferType?) {
+    private fun setSelectedSpan(tv: TextView, string: SpannableString, type: BufferType?, array: IntArray) {
         if (mMap.isEmpty()) {
             mMap["start"] = tv.selectionStart
             mMap["end"] = tv.selectionEnd
@@ -197,11 +205,46 @@ class UiWordView : AppCompatTextView {
             string.setSpan(textColor, mMap.getValue("start"), mMap.getValue("end"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             string.setSpan(textBackground, mMap.getValue("start"), mMap.getValue("end"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             val word = tv.text.subSequence(mMap.getValue("start"), mMap.getValue("end")).toString()
-            mWordClickListener?.let { it(word, mMap.getValue("start"), mMap.getValue("end")) }
+            mWordClickListener?.let { it(word, mMap.getValue("start"), mMap.getValue("end"), array, tv) }
         }else {
-            mWordClickListener?.let { it("", 0, 0) }
+            mWordClickListener?.let { it("", 0, 0, array, tv) }
         }
         super.setText(string,type)
+    }
+
+    /** 位置测量 */
+    fun measurePosition(spanned: ClickableSpan?, widget: View, array: IntArray) {
+        val parentTextView = widget as TextView
+        val parentTextViewRect = Rect()
+        // 初始化计算点击View位置的值
+        val completeText = parentTextView.text as SpannableString
+        val textViewLayout = parentTextView.layout
+        val startOffsetOfClickedText = completeText.getSpanStart(spanned)
+        val endOffsetOfClickedText = completeText.getSpanEnd(spanned)
+        val startXCoordinatesOfClickedText = textViewLayout.getPrimaryHorizontal(startOffsetOfClickedText)
+        val endXCoordinatesOfClickedText = textViewLayout.getPrimaryHorizontal(endOffsetOfClickedText)
+        // 获得点击文本的矩形
+        val currentLineStartOffset = textViewLayout.getLineForOffset(startOffsetOfClickedText)
+        val currentLineEndOffset = textViewLayout.getLineForOffset(endOffsetOfClickedText)
+        val keywordIsInMultiLine = currentLineStartOffset != currentLineEndOffset
+        textViewLayout.getLineBounds(currentLineStartOffset, parentTextViewRect)
+        // 将矩形位置更新为他在屏幕上的真实位置
+        val parentTextViewLocation = IntArray(2)
+        parentTextView.getLocationOnScreen(parentTextViewLocation)
+        val parentTextViewTopAndBottomOffset = parentTextViewLocation[1] - parentTextView.scrollY + parentTextView.compoundPaddingTop
+        parentTextViewRect.top += parentTextViewTopAndBottomOffset
+        parentTextViewRect.bottom += parentTextViewTopAndBottomOffset
+        parentTextViewRect.left += (parentTextViewLocation[0] + startXCoordinatesOfClickedText + parentTextView.compoundPaddingLeft - parentTextView.scrollX).toInt()
+        parentTextViewRect.right = (parentTextViewRect.left + endXCoordinatesOfClickedText - startXCoordinatesOfClickedText).toInt()
+        var x = parentTextViewRect.left
+        val y = parentTextViewRect.bottom
+        if (keywordIsInMultiLine) {
+            x = parentTextViewRect.left
+        }
+        array[0] = x
+        array[1] = y
+        array[2] = parentTextViewRect.width()
+        array[3] = parentTextViewRect.height()
     }
 
 }

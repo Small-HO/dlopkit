@@ -51,8 +51,11 @@
         <!-- 边框 -->
         <attr name="border_width" />
         <attr name="border_color" />
-        <!-- 多颜色 -->
+        <!-- 开启取词 -->
         <attr name="is_check" format="boolean" />
+        <!-- 开启多选 -->
+        <attr name="choice_type" format="boolean" />
+        <!-- 多颜色 -->
         <attr name="error_color" format="reference|color" />
         <attr name="succeed_color" format="reference|color" />
         <attr name="error_text" format="string" />

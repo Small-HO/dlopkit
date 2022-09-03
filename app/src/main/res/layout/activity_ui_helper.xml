@@ -15,19 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.small.uikit.ui.view.UiProgressBar
-            android:id="@+id/bar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:bar_background="#FFEACC"
-            app:bar_color="#FFB343"
-            app:bar_max="10"
-            app:bar_num="0"
-            app:bar_text_color="#949397"
-            app:bar_text_size="4sp"
-            app:bar_width="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <com.small.uikit.ui.view.UiWordView
+            android:id="@+id/word"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:is_check="true"
             app:layout_constraintTop_toTopOf="parent"
             />
 
