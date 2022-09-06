@@ -247,4 +247,18 @@ class UiWordView : AppCompatTextView {
         array[3] = parentTextViewRect.height()
     }
 
+    /** 设置是否开启取词 */
+    fun setIsCheck(isCheck: Boolean) {
+        this.mIsCheck = isCheck
+        requestLayout()
+        invalidate()
+    }
+
+    /** 设置是否开启多选 */
+    fun setChoiceType(type: Boolean) {
+        this.mChoiceType = type
+        requestLayout()
+        invalidate()
+    }
+
 }
