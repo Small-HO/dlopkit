@@ -105,9 +105,10 @@ class UiWordView : AppCompatTextView {
     override fun setText(text: CharSequence?, type: BufferType?) {
         this.mType = type
         movementMethod = LinkMovementMethod.getInstance()
-        if (mString.isNullOrEmpty()) {
-            mString = SpannableString(text)
-        }
+//        if (mString.isNullOrEmpty()) {
+//            mString = SpannableString(text)
+//        }
+        mString = SpannableString(text)
         mString?.let { initTextColor(text, it, mType) }
         super.setText(mString, mType)
     }
