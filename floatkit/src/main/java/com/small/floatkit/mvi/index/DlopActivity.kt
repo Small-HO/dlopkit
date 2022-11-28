@@ -39,11 +39,15 @@ class DlopActivity : BaseVMActivity<DlopActivityLayoutBinding>() {
         }?: kotlin.run {
             Toast.makeText(this,"未配置环境,无法切换",Toast.LENGTH_SHORT).show()
         }
-
-
+        
         /** 网络管理 */
         binding.tvNetwork.setOnClickListener {
             Toast.makeText(this, "待开发",Toast.LENGTH_SHORT).show()
+        }
+
+        /** 方法耗时 */
+        binding.tvTime.setOnClickListener {
+
         }
     }
 

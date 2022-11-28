@@ -166,6 +166,30 @@
                     android:text="网络拦截"
                     android:textColor="@color/black" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:text="性能检测"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:button="@null"
+                    android:drawableTop="@drawable/dlop_image_gary_10_background"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:text="耗时检测"
+                    android:textColor="@color/black" />
+
             </LinearLayout>
 
         </com.small.libcommon.view.XScrollView>

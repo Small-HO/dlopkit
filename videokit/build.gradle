@@ -50,4 +50,5 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    namespace 'com.small.videokit'
 }
