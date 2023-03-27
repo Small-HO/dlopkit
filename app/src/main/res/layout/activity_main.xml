@@ -91,6 +91,13 @@
                 android:text="加粗"
                 />
 
+            <Button
+                android:id="@+id/btCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="相机"
+                />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

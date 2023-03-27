@@ -1,5 +1,6 @@
 package com.small.dlopkit
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +8,17 @@ import android.view.SurfaceView
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
 import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
 import com.small.videokit.FFmpegNativeUtils.startVideo
 import com.small.videokit.FFmpegNativeUtils.videoPlay
+import com.zhihu.matisse.Matisse
+import com.zhihu.matisse.MimeType
+import com.zhihu.matisse.engine.impl.GlideEngine
+import com.zhihu.matisse.internal.entity.CaptureStrategy
 
 class MainActivity : AppCompatActivity() {
     
@@ -60,6 +67,24 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.bt_bold).setOnClickListener {
             findViewById<RichEditor>(R.id.richEditor).setBold()
+        }
+
+        findViewById<Button>(R.id.btCar).setOnClickListener {
+            XXPermissions.with(this)
+                .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+                .permission(Manifest.permission.CAMERA)
+                .request { permissions, allGranted ->
+                    if (allGranted) {
+                        Matisse.from(this)
+                            .choose(MimeType.ofImage())           // 图片类型
+                            .countable(true)           // true:选中后显示数字;false:选中后显示对号
+                            .maxSelectable(1)      // 可选的最大数
+                            .capture(false)              // 选择照片时，是否显示拍照
+                            .captureStrategy(CaptureStrategy(true, "com.xbkaoyan.ikaoyaner.provider")) //参数1 true表示拍照存储在共有目录，false表示存储在私有目录；参数2与 AndroidManifest中authorities值相同，用于适配7.0系统 必须设置
+                            .imageEngine(GlideEngine()) //图片加载引擎
+                            .forResult(2) //
+                    }
+                }
         }
     }
 
