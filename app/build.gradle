@@ -50,6 +50,6 @@ dependencies {
     implementation project(':corekit')
     implementation project(':editorkit')
     implementation project(':uikit')
-    implementation project(':matisse')
+    implementation project(':camerakit')
     implementation 'com.github.getActivity:XXPermissions:16.8'
 }

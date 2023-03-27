@@ -10,15 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
+import com.small.camerakit.Matisse
+import com.small.camerakit.MimeType
+import com.small.camerakit.engine.impl.GlideEngine
+import com.small.camerakit.internal.entity.CaptureStrategy
 import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
 import com.small.videokit.FFmpegNativeUtils.startVideo
 import com.small.videokit.FFmpegNativeUtils.videoPlay
-import com.zhihu.matisse.Matisse
-import com.zhihu.matisse.MimeType
-import com.zhihu.matisse.engine.impl.GlideEngine
-import com.zhihu.matisse.internal.entity.CaptureStrategy
 
 class MainActivity : AppCompatActivity() {
     
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             XXPermissions.with(this)
                 .permission(Permission.MANAGE_EXTERNAL_STORAGE)
                 .permission(Manifest.permission.CAMERA)
-                .request { permissions, allGranted ->
+                .request { _, allGranted ->
                     if (allGranted) {
                         Matisse.from(this)
                             .choose(MimeType.ofImage())           // 图片类型
