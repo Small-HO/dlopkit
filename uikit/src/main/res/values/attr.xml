@@ -12,7 +12,10 @@
     <!-- 边框 -->
     <attr name="border_width" format="dimension" />
     <attr name="border_color" format="color" />
-
+    <!-- 是否吸附 -->
+    <attr name="custom_is_Attach" format="boolean" />
+    <!-- 是否可拖拽 -->
+    <attr name="custom_is_drag" format="boolean" />
     <!-- 基础属性 -->
     <declare-styleable name="BaseView">
         <attr name="corner_radius" />
@@ -24,6 +27,10 @@
         <!-- 边框 -->
         <attr name="border_width" />
         <attr name="border_color" />
+        <!-- 是否吸附 -->
+        <attr name="custom_is_Attach" />
+        <!-- 是否可拖拽 -->
+        <attr name="custom_is_drag" />
     </declare-styleable>
 
     <!-- ImageView属性 -->
