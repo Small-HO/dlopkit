@@ -31,6 +31,9 @@ class UiSplitView : ViewGroup , View.OnTouchListener {
     private var mMid: View? = null
     private var mBottom: View? = null
 
+    private var mCount = 0
+    private var isFirst = true
+
     constructor(context: Context): super(context)
     constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
         initAttributeSet(context, attrs)
@@ -55,9 +58,20 @@ class UiSplitView : ViewGroup , View.OnTouchListener {
         if (childCount != 3) {
             throw RuntimeException("需要添加3个控件")
         }
-        conHeight = MeasureSpec.getSize(heightMeasureSpec)
-        if (mSplitHeight == 0) {
-            mSplitHeight = (conHeight * mViewRatio).toInt()
+        val measureHeight = MeasureSpec.getSize(heightMeasureSpec)
+        if (measureHeight > conHeight) {
+            if (mViewRatio == 0f) {
+                mSplitHeight = measureHeight - conHeight
+                conHeight = measureHeight
+            }else {
+                conHeight = measureHeight
+                mSplitHeight = (conHeight * mViewRatio).toInt()
+            }
+        }else {
+            conHeight = measureHeight
+            if (mSplitHeight == 0) {
+                mSplitHeight = (conHeight * mViewRatio).toInt()
+            }
         }
         measureChild(mTop, widthMeasureSpec, MeasureSpec.makeMeasureSpec(mSplitHeight, MeasureSpec.EXACTLY))
         measureChild(mMid, widthMeasureSpec, heightMeasureSpec)
@@ -65,9 +79,15 @@ class UiSplitView : ViewGroup , View.OnTouchListener {
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        if (mViewRatio == 0f && isFirst) {
+            mCount = (0 + mSplitHeight - (mMid?.measuredHeight ?: 0))
+            mSplitHeight -= mCount
+            isFirst = false
+        }
         mTop?.let { it.layout(0, 0, 0 + it.measuredWidth, 0 + it.measuredHeight) }
         mMid?.let { it.layout(0, 0 + mSplitHeight - it.measuredHeight, 0 + it.measuredWidth, 0 + mSplitHeight) }
-        mBottom?.let { it.layout(0, 0 + mSplitHeight, 0 + it.measuredWidth, 0 + mSplitHeight + it.measuredHeight) }
+        mBottom?.let { it.layout(0, 0 + mSplitHeight, 0 + it.measuredWidth, 0 + mSplitHeight + it.measuredHeight + mCount) }
+
     }
 
     override fun onFinishInflate() {
