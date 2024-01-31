@@ -59,6 +59,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
         invalidateSelf()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
 
     override fun draw(canvas: Canvas) {

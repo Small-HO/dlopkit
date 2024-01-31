@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
 }
 
 android {
@@ -19,7 +20,6 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            zipAlignEnabled true
             buildConfigField("String","API_HOST",API_HOST_MAIN)
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -39,6 +39,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
     namespace 'com.small.dlopkit'
 }

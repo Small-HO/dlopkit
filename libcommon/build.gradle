@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -17,7 +18,6 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -55,7 +55,7 @@ dependencies {
     api "androidx.lifecycle:lifecycle-runtime-ktx:$component.viewmodel"
     //  协程
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$component.coroutines"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$component.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$component.coroutines_android"
 
     // 网络
     api "me.jessyan:retrofit-url-manager:$pthread.jessyan"

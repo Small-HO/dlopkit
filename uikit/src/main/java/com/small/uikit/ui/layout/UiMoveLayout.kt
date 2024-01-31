@@ -104,7 +104,14 @@ class UiMoveLayout : ConstraintLayout {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        super.dispatchTouchEvent(event)
+        event?.let {
+            return if (mCustomIsDrag) {
+                onTouchEvent(event)
+                true
+            }else {
+                super.dispatchTouchEvent(event)
+            }
+        }
         return true
     }
 
