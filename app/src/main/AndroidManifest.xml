@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dlopkit">
         <activity
+            android:name=".VideoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MultiActivity"
             android:exported="false" />
         <activity

@@ -15,7 +15,6 @@ ext {
     android = [
             versionCode: 40,         //  版本号
             versionName: "1.4.0",    //  版本名
-
             minSdkVersion: 22,      //  支持SDK的最小版本
             targetSdkVersion: 34,   //  支持SDK的最高版本
             compileSdkVersion: 34,  //  编译的SDK版本

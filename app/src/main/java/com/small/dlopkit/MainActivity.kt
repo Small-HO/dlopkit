@@ -45,11 +45,15 @@ class MainActivity : AppCompatActivity() {
             Log.e("测试------->", PopDlopManager.getHttpUrl())
         }
 
+        findViewById<Button>(R.id.btnVideo).setOnClickListener {
+            startActivity(Intent(this, VideoActivity::class.java))
+        }
+
 
         val play = findViewById<Button>(R.id.bt_play)
         play.setOnClickListener {
             Thread {
-                startVideo("http://cdn.ikaoyaner.com/xbky/course/video/2021-12-03/选择题押题1.mp4", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
+//                startVideo("http://cdn.ikaoyaner.com/xbky/course/video/2021-12-03/选择题押题1.mp4", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
 //                videoPlay("rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp", findViewById<SurfaceView>(R.id.sfv_player).holder.surface)
             }.start()
         }

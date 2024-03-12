@@ -12,7 +12,7 @@ object WordUtils {
     private var sPunctuations: List<Char> = arrayListOf()
 
     init {
-        val arr = arrayOf(',', '.', ';', '!', '"', '，', '。', '！', '；', '、', '：', '“', '”', '?', '？')
+        val arr = arrayOf(',', '.', ';', '!', '"', '，', '。', '！', '；', '、', '：', '“', '”', '?', '？','①')
         sPunctuations = arr.asList()
     }
 

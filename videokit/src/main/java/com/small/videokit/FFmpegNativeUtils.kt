@@ -16,4 +16,8 @@ object FFmpegNativeUtils {
 
     external fun startVideo(path: String, surface: Surface)
 
+    external fun extractMedia(video: String, audio: String, type: Int)
+
+    external fun extractVideo(video: String, audio: String)
+
 }

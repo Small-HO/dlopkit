@@ -67,6 +67,11 @@
         <attr name="succeed_color" format="reference|color" />
         <attr name="error_text" format="string" />
         <attr name="succeed_text" format="string" />
+
+        <!-- 文本背景色间隔 -->
+        <attr name="txt_bg_color" format="reference|color" />
+        <attr name="txt_bg_check" format="boolean" />
+
     </declare-styleable>
 
     <!-- SplitView属性 -->
