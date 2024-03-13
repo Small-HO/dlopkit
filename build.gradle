@@ -7,6 +7,6 @@ plugins {
 }
 apply from: 'config/config.gradle'
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.withType(Jar) {
+    from sourceSets.main.output
 }
