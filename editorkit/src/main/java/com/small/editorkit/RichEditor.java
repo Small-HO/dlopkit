@@ -2,7 +2,6 @@ package com.small.editorkit;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -27,6 +26,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Created by small-ho on 2022/06 14:32
@@ -146,7 +146,6 @@ public class RichEditor extends WebView {
                 android.R.attr.gravity
         };
         TypedArray ta = context.obtainStyledAttributes(attrs, attrsArray);
-
         int gravity = ta.getInt(0, NO_ID);
         switch (gravity) {
             case Gravity.LEFT:
@@ -433,10 +432,6 @@ public class RichEditor extends WebView {
 
     /**
      * the image according to the specific width of the image automatically
-     *
-     * @param url
-     * @param alt
-     * @param width
      */
     public void insertImage(String url, String alt, int width) {
         exec("javascript:RE.prepareInsert();");
@@ -446,11 +441,6 @@ public class RichEditor extends WebView {
     /**
      * {@link RichEditor#insertImage(String, String)} will show the original size of the image.
      * So this method can manually process the image by adjusting specific width and height to fit into different mobile screens.
-     *
-     * @param url
-     * @param alt
-     * @param width
-     * @param height
      */
     public void insertImage(String url, String alt, int width, int height) {
         exec("javascript:RE.prepareInsert();");
@@ -523,6 +513,7 @@ public class RichEditor extends WebView {
         }
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private void load(String trigger) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             evaluateJavascript(trigger, null);
@@ -540,6 +531,7 @@ public class RichEditor extends WebView {
             }
         }
 
+        @SuppressLint("WebViewClientOnReceivedSslError")
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             handler.proceed();
@@ -559,7 +551,6 @@ public class RichEditor extends WebView {
             return super.shouldOverrideUrlLoading(view, url);
         }
 
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             final String url = request.getUrl().toString();
@@ -608,12 +599,9 @@ public class RichEditor extends WebView {
         void onImageClick(String imageUrl);
     }
 
-    private ImageClickListener imageClickListener;
-
+    @SuppressLint("ClickableViewAccessibility")
     public void setImageClickListener(ImageClickListener imageClickListener) {
-        this.imageClickListener = imageClickListener;
-        if (this.imageClickListener != null) {
-
+        if (imageClickListener != null) {
             RichEditor.this.setOnTouchListener((v, event) -> {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
@@ -623,42 +611,33 @@ public class RichEditor extends WebView {
                         moveY = 0;
                         currentMS = System.currentTimeMillis();//long currentMS     获取系统时间
                         break;
-
-
                     case MotionEvent.ACTION_MOVE:
                         moveX += Math.abs(event.getX() - DownX);//X轴距离
                         moveY += Math.abs(event.getY() - DownY);//y轴距离
                         DownX = event.getX();
                         DownY = event.getY();
                         break;
-
                     case MotionEvent.ACTION_UP:
                         long moveTime = System.currentTimeMillis() - currentMS;//移动时间
                         //判断是否继续传递信号
                         if (moveTime < 400 && (moveX < 25 && moveY < 25)) {
                             //这里是点击
                             HitTestResult mResult = getHitTestResult();
-                            if (mResult != null) {
-                                final int type = mResult.getType();
-                                if (type == HitTestResult.IMAGE_TYPE) {//|| type == WebView.HitTestResult.IMAGE_ANCHOR_TYPE || type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE
-                                    //如果是点击图片
-                                    String imageUrl = mResult.getExtra();
-                                    setInputEnabled(false);
-                                    postDelayed(() -> {
-                                        if (imageClickListener != null) {
-                                            if (imageUrl.contains("file://")) {
-                                                //说明是本地文件去除
-                                                String newImageUrl = imageUrl.replace("file://", "");
-                                                imageClickListener.onImageClick(newImageUrl);
-                                            } else {
-                                                imageClickListener.onImageClick(imageUrl);
-                                            }
-                                        }
-                                    }, 200);
-                                } else {
-                                    //不是点击的图片
-                                }
-                            }
+                            final int type = mResult.getType();
+                            if (type == HitTestResult.IMAGE_TYPE) {//|| type == WebView.HitTestResult.IMAGE_ANCHOR_TYPE || type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE
+                                //如果是点击图片
+                                String imageUrl = mResult.getExtra();
+                                setInputEnabled(false);
+                                postDelayed(() -> {
+                                    if (Objects.requireNonNull(imageUrl).contains("file://")) {
+                                        //说明是本地文件去除
+                                        String newImageUrl = imageUrl.replace("file://", "");
+                                        imageClickListener.onImageClick(newImageUrl);
+                                    } else {
+                                        imageClickListener.onImageClick(imageUrl);
+                                    }
+                                }, 200);
+                            }  //不是点击的图片
                         }
                         break;
                 }

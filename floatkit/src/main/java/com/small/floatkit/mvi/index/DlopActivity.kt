@@ -12,12 +12,13 @@ import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.databinding.DlopActivityLayoutBinding
 import com.small.libcommon.base.BaseVMActivity
 import com.small.libcommon.ktx.observeEvent
+import com.small.libcommon.ktx.serializableExtra
 import kotlinx.coroutines.launch
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 
 class DlopActivity : BaseVMActivity<DlopActivityLayoutBinding>() {
 
-    private val config by lazy { intent.extras?.getSerializable("config") as DlopConfig? }
+    private val config by lazy { intent.serializableExtra<DlopConfig>("config") }
 
     private val viewModel by lazy { ViewModelProvider(this)[DlopViewModel::class.java] }
 
