@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btnUi).setOnClickListener {
-//            startActivity(Intent(this,UiHelperActivity::class.java))
+            startActivity(Intent(this,UiHelperActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnMulti).setOnClickListener {

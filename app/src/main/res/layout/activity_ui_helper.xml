@@ -15,18 +15,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.small.uikit.ui.layout.UiMoveLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            app:background_normal="#eeeeee"
-            app:custom_is_Attach="true"
-            app:custom_is_drag="true"
-            app:corner_radius="10dp"
+            <com.small.uikit.ui.view.UiRangeSeekBar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:bar_background="#B3B4B5"
+                app:bar_color="#2196F3"
+                app:bar_width="10dp"
+                app:corner_radius="10dp" />
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

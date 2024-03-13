@@ -82,6 +82,18 @@
         <attr name="view_ratio" format="float" />
     </declare-styleable>
 
+    <!-- RecyclerView属性 -->
+    <declare-styleable name="UiRecyclerView">
+        <attr name="layout_empty" format="reference" />
+    </declare-styleable>
+
+
+    <!-- 进度条宽度 -->
+    <attr name="bar_width" format="dimension" />
+    <!-- 进度条背景 -->
+    <attr name="bar_background" format="color" />
+    <!-- 进度条颜色 -->
+    <attr name="bar_color" format="color" />
     <!-- ProgressBar属性 -->
     <declare-styleable name="UiProgressBar">
         <!-- 条形圆角 -->
@@ -89,9 +101,9 @@
         <!-- 类型 0：圆形 1：条形 -->
         <attr name="bar_style" format="integer" />
         <!-- 进度条 -->
-        <attr name="bar_width" format="dimension" />
-        <attr name="bar_background" format="color" />
-        <attr name="bar_color" format="color" />
+        <attr name="bar_width" />
+        <attr name="bar_background" />
+        <attr name="bar_color" />
         <attr name="bar_max" format="integer" />
         <attr name="bar_num" format="integer" />
         <!-- 文本 -->
@@ -99,9 +111,14 @@
         <attr name="bar_text_size" format="dimension" />
     </declare-styleable>
 
-    <!-- RecyclerView属性 -->
-    <declare-styleable name="UiRecyclerView">
-        <attr name="layout_empty" format="reference" />
+    <!-- RangeSeekBar属性 -->
+    <declare-styleable name="UiRangeSeekBar">
+        <!-- 条形圆角 -->
+        <attr name="corner_radius" />
+        <!-- 进度条 -->
+        <attr name="bar_width" />
+        <attr name="bar_background" />
+        <attr name="bar_color" />
     </declare-styleable>
 
 </resources>
