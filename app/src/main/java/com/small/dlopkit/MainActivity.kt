@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btnUi).setOnClickListener {
-            startActivity(Intent(this,UiHelperActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnMulti).setOnClickListener {
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnVideo).setOnClickListener {
-            startActivity(Intent(this, VideoActivity::class.java))
         }
 
 
