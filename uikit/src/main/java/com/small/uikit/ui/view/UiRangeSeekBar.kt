@@ -156,8 +156,8 @@ class UiRangeSeekBar : View {
                     e.printStackTrace()
                 }
                 //  时间转化
-                val startSeconds = ((leftThumbX / width - paddingLeft - paddingRight) * duration).toInt()
-                val endSeconds = ((rightThumbX / width - paddingLeft - paddingRight) * duration).toInt()
+                val startSeconds = ((leftThumbX / (width - paddingLeft - paddingRight)) * duration).toInt()
+                val endSeconds = ((rightThumbX / (width - paddingLeft - paddingRight)) * duration).toInt()
                 mSeekBarListener?.let { it(startSeconds, endSeconds) }
                 invalidate()
                 return true
