@@ -104,7 +104,7 @@ class UiProgressBar : View {
         mPaint?.isAntiAlias = true
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // 绘制背景
         drawBack(canvas)

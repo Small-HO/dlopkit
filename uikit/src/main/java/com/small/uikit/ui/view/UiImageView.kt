@@ -79,7 +79,7 @@ class UiImageView : AppCompatImageView {
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         drawEmptyBitmap()
     }
