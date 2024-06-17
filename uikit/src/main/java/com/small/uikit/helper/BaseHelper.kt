@@ -11,7 +11,7 @@ import com.small.uikit.R
  * Created by small-ho on 2022/06 15:05
  * title: 基础帮助类
  */
-class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) : BaseHelperImpl {
+class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) : BaseHelperImpl(context) {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1

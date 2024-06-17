@@ -13,6 +13,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.small.uikit.ui.view.UiTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
             <Button
                 android:id="@+id/btnUi"
                 android:layout_width="wrap_content"
