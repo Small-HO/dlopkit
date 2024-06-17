@@ -14,8 +14,10 @@
             android:orientation="vertical">
 
             <com.small.uikit.ui.view.UiTextView
+                android:id="@+id/tvCeshi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="测试"
                 />
 
             <Button

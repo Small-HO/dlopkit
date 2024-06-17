@@ -17,6 +17,7 @@ import com.small.camerakit.internal.entity.CaptureStrategy
 import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
+import com.small.uikit.ui.view.UiTextView
 import com.small.videokit.FFmpegNativeUtils.startVideo
 import com.small.videokit.FFmpegNativeUtils.videoPlay
 
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<UiTextView>(R.id.tvCeshi).setOnClickListener {
+
+        }
 
         findViewById<Button>(R.id.btnUi).setOnClickListener {
 //            startActivity(Intent(this,UiHelperActivity::class.java))
