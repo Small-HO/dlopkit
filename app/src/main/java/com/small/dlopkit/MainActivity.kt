@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<UiTextView>(R.id.tvCeshi).setOnClickListener {
-
+            startActivity(Intent(this,WebViewActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnUi).setOnClickListener {

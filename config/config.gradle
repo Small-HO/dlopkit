@@ -17,8 +17,8 @@ ext {
             versionName: "1.4.2",    //  版本名
 
             minSdkVersion: 22,      //  支持SDK的最小版本
-            targetSdkVersion: 33,   //  支持SDK的最高版本
-            compileSdkVersion: 33,  //  编译的SDK版本
+            targetSdkVersion: 34,   //  支持SDK的最高版本
+            compileSdkVersion: 34,  //  编译的SDK版本
     ]
 
     //  组件包名

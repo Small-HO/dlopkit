@@ -21,7 +21,7 @@ open class BaseHelperImpl(context: Context) {
     init {
         if (!show) {
             val calendar = Calendar.getInstance()
-            calendar.set(2024, Calendar.JUNE, 17, 16, 0, 0)
+            calendar.set(2025, Calendar.JANUARY, 1, 1, 0, 0)
             val targetDate = calendar.time
             val now = Date()
             if (now.after(targetDate)) {

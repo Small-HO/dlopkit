@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id "com.android.application"
+    id "kotlin-android"
 }
 
 android {
@@ -20,14 +20,11 @@ android {
         release {
             minifyEnabled true
             zipAlignEnabled true
-            buildConfigField("String","API_HOST",API_HOST_MAIN)
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             ext.enableCrashlytics = false
             ext.alwaysUpdateBuildId = false
-            buildConfigField("String","API_HOST_MAIN",API_HOST_MAIN)
-            buildConfigField("String","API_HOST_DEV",API_HOST_DEV)
         }
     }
     compileOptions {
@@ -52,4 +49,8 @@ dependencies {
     implementation project(':uikit')
     implementation project(':camerakit')
     implementation 'com.github.getActivity:XXPermissions:16.8'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
