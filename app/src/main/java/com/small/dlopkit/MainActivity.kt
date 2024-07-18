@@ -1,5 +1,6 @@
 package com.small.dlopkit
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -8,6 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
+import com.small.uikit.ui.view.UiTextView
+import com.small.videokit.FFmpegNativeUtils.startVideo
+import com.small.videokit.FFmpegNativeUtils.videoPlay
 
 class MainActivity : AppCompatActivity() {
     
@@ -17,10 +21,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        findViewById<UiTextView>(R.id.tvCeshi).setOnClickListener {
+            startActivity(Intent(this,WebViewActivity::class.java))
+        }
+
         findViewById<Button>(R.id.btnUi).setOnClickListener {
         }
 
         findViewById<Button>(R.id.btnMulti).setOnClickListener {
+//            startActivity(Intent(this,UiHelperActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btnMulti).setOnClickListener {
+//            startActivity(Intent(this,MultiActivity::class.java))
         }
 
         PopDlopManager.init(this, DlopConfig().apply {

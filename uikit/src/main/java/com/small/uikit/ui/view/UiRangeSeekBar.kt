@@ -6,11 +6,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import androidx.core.view.marginEnd
-import androidx.core.view.marginStart
 import com.small.uikit.R
 
 /**
@@ -156,8 +153,8 @@ class UiRangeSeekBar : View {
                     e.printStackTrace()
                 }
                 //  时间转化
-                val startSeconds = ((leftThumbX / width) * duration).toInt()
-                val endSeconds = ((rightThumbX / width) * duration).toInt()
+                val startSeconds = ((leftThumbX / (width - paddingLeft - paddingRight)) * duration).toInt()
+                val endSeconds = ((rightThumbX / (width - paddingLeft - paddingRight)) * duration).toInt()
                 mSeekBarListener?.let { it(startSeconds, endSeconds) }
                 invalidate()
                 return true
