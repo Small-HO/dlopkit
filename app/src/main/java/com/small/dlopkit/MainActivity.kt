@@ -1,12 +1,10 @@
 package com.small.dlopkit
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
 import com.small.uikit.ui.view.UiTextView
@@ -67,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.bt_bold).setOnClickListener {
-            findViewById<RichEditor>(R.id.richEditor).setBold()
         }
 
         findViewById<Button>(R.id.btCar).setOnClickListener {
