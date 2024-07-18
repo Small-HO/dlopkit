@@ -44,7 +44,6 @@ android {
 dependencies {
     api "androidx.core:core-ktx:$component.core"
     api "com.google.android.material:material:$component.material"
-    api "androidx.appcompat:appcompat:$component.appcompat"
     api "androidx.constraintlayout:constraintlayout:$component.layout"
     api "com.github.RuffianZhong:RWidgetHelper:$pthread.uiHelper"
 

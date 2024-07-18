@@ -31,7 +31,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:$component.appcompat"
     implementation "androidx.recyclerview:recyclerview:$component.recycler"
     implementation "it.sephiroth.android.library.imagezoom:library:$pthread.imagezoom"
 
