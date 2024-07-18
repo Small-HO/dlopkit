@@ -39,7 +39,7 @@ android {
 
 dependencies {
     api project(":floatkit")
-    api project(":editorkit")
+//    api project(":editorkit")
     api project(":updatekit")
     api project(":videokit")
     api project(":uikit")

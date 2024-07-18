@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'kotlin-kapt'
     id 'maven-publish'
     id "kotlin-android"
 }

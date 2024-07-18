@@ -48,7 +48,7 @@ dependencies {
     implementation project(':videokit')
     implementation project(':updatekit')
     implementation project(':corekit')
-    implementation project(':editorkit')
+//    implementation project(':editorkit')
     implementation project(':uikit')
     implementation project(':camerakit')
     implementation 'com.github.getActivity:XXPermissions:16.8'
