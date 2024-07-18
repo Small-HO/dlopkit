@@ -25,11 +25,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnMulti).setOnClickListener {
-//            startActivity(Intent(this,UiHelperActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnMulti).setOnClickListener {
-//            startActivity(Intent(this,MultiActivity::class.java))
         }
 
         PopDlopManager.init(this, DlopConfig().apply {
