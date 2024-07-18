@@ -13,8 +13,8 @@ ext {
 
     //  App相关版本控制
     android = [
-            versionCode: 59,         //  版本号
-            versionName: "1.5.9",    //  版本名
+            versionCode: 60,         //  版本号
+            versionName: "1.6.0",    //  版本名
 
             minSdkVersion: 22,      //  支持SDK的最小版本
             targetSdkVersion: 33,   //  支持SDK的最高版本
@@ -33,17 +33,16 @@ ext {
 
     //  组件库
     component   = [
-            core:       "1.13.1",
+            core:       "1.7.0",
             layout:     "2.1.4",
             coroutines: '1.6.4',        //  协程
             coroutines_android: "1.7.3",
-            appcompat:  "1.7.0",
-            material:   "1.12.0",
+            material:   "1.8.0",
             paging:     "3.1.1",        //  paging3
             recycler:   "1.3.2",        //  recyclerView
             websocket:  "1.5.1",        //  websocket
             lifecycle:  "2.2.0",        //  lifecycle
-            viewmodel:  "2.8.2",        //  lifecycle-viewmodel
+            viewmodel:  "2.5.1",        //  lifecycle-viewmodel
             room:       "2.3.0",        //  Android Room
             retrofit:   "2.9.0",        //  retrofit
             conscrypt: '2.5.2',        //  conscrypt
