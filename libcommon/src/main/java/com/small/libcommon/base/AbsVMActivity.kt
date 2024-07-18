@@ -13,10 +13,10 @@ abstract class AbsVMActivity<DB : ViewDataBinding> : AppCompatActivity() {
 
     protected lateinit var binding: DB
 
-    override fun onCreate(state: Bundle?) {
-        super.onCreate(state)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, initLayout())
-        initView(state)
+        initView(savedInstanceState)
         initClick()
         initViewStates()
         initViewEvents()
