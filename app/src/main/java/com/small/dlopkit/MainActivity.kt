@@ -10,8 +10,6 @@ import com.small.editorkit.RichEditor
 import com.small.floatkit.common.DlopConfig
 import com.small.floatkit.manager.PopDlopManager
 import com.small.uikit.ui.view.UiTextView
-import com.small.videokit.FFmpegNativeUtils.startVideo
-import com.small.videokit.FFmpegNativeUtils.videoPlay
 
 class MainActivity : AppCompatActivity() {
     
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<UiTextView>(R.id.tvCeshi).setOnClickListener {
-            startActivity(Intent(this,WebViewActivity::class.java))
+
         }
 
         findViewById<Button>(R.id.btnUi).setOnClickListener {
