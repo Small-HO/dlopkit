@@ -48,9 +48,9 @@ dependencies {
     implementation project(':videokit')
     implementation project(':updatekit')
     implementation project(':corekit')
-//    implementation project(':editorkit')
     implementation project(':uikit')
-    implementation project(':camerakit')
+//    implementation project(':camerakit')
+//    implementation project(':editorkit')
     implementation 'com.github.getActivity:XXPermissions:16.8'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
