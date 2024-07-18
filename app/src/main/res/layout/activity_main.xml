@@ -13,19 +13,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.small.uikit.ui.view.UiTextView
+                android:id="@+id/tvCeshi"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="点击这里测试网页"
+                android:gravity="center"
+                />
+
             <Button
                 android:id="@+id/btnUi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ui库"
-                />
+                android:text="Ui库" />
 
             <Button
                 android:id="@+id/btnMulti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="页面切换"
-                />
+                android:text="页面切换" />
+
+            <Button
+                android:id="@+id/btnVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频库" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,35 +80,25 @@
                 android:id="@+id/bt_patch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="生成差分包"
-                />
+                android:text="生成差分包" />
 
             <Button
                 android:id="@+id/bt_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="增量更新"
-                />
-
-            <com.small.editorkit.RichEditor
-                android:id="@+id/richEditor"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                />
+                android:text="增量更新" />
 
             <Button
                 android:id="@+id/bt_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="加粗"
-                />
+                android:text="加粗" />
 
             <Button
                 android:id="@+id/btCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="相机"
-                />
+                android:text="相机" />
 
         </LinearLayout>
 

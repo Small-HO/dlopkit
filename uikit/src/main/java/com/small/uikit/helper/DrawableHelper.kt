@@ -14,7 +14,7 @@ import kotlin.math.min
  * Created by small-ho on 2022/06 11:22
  * title: Drawable帮助类
  */
-class DrawableHelper(val bitmap: Bitmap) : Drawable() {
+class DrawableHelper(private val bitmap: Bitmap) : Drawable() {
     private val mBitmapWidth: Int = bitmap.width
     private val mBitmapHeight: Int = bitmap.height
     private val mBitmapRect = RectF()
@@ -59,6 +59,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
         invalidateSelf()
     }
 
+    @Deprecated("Deprecated in Java", ReplaceWith("PixelFormat.TRANSLUCENT", "android.graphics.PixelFormat"))
     override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
 
     override fun draw(canvas: Canvas) {
@@ -247,6 +248,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
     /**
      * 统一设置参数
      */
+    @Suppress("NAME_SHADOWING")
     fun setParams(scaleType: ScaleType?, borderWidth: Float, borderColor: Int, circle: Boolean, corner: Float, topLeft: Float, topRight: Float, bottomLeft: Float, bottomRight: Float) {
         // scaleType
         var scaleType = scaleType
@@ -256,7 +258,6 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
         if (mScaleType != scaleType) {
             mScaleType = scaleType
         }
-
         //borderWidth
         mBorderWidth = borderWidth
         //borderColor
@@ -279,6 +280,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
         invalidateSelf() //更新
     }
 
+    @Suppress("NAME_SHADOWING")
     fun setScaleType(scaleType: ScaleType?): DrawableHelper {
         var scaleType = scaleType
         if (scaleType == null) {
@@ -314,7 +316,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
         return this
     }
 
-    fun setConner(corner: Float, topLeft: Float, topRight: Float, bottomLeft: Float, bottomRight: Float, ): DrawableHelper {
+    fun setConner(corner: Float, topLeft: Float, topRight: Float, bottomLeft: Float, bottomRight: Float): DrawableHelper {
         mCorner = corner
         mCornerTopLeft = topLeft
         mCornerTopRight = topRight
@@ -358,7 +360,7 @@ class DrawableHelper(val bitmap: Bitmap) : Drawable() {
             return drawable
         }
 
-        fun drawableToBitmap(drawable: Drawable): Bitmap? {
+        private fun drawableToBitmap(drawable: Drawable): Bitmap? {
             if (drawable is BitmapDrawable) {
                 return drawable.bitmap
             }

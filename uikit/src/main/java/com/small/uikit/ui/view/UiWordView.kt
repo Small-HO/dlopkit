@@ -102,6 +102,25 @@ class UiWordView : AppCompatTextView {
         background = shape
     }
 
+    var errorText: String?
+        get() = mErrorText
+        set(value) {
+            mErrorText = value
+            updateTextStyles()
+        }
+
+    var succeedText: String?
+        get() = mSucceedText
+        set(value) {
+            mSucceedText = value
+            updateTextStyles()
+        }
+
+    private fun updateTextStyles() {
+        mString?.let { initTextColor(text, it, mType) }
+        super.setText(mString, mType)
+    }
+
     override fun setText(text: CharSequence?, type: BufferType?) {
         this.mType = type
         movementMethod = LinkMovementMethod.getInstance()
