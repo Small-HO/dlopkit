@@ -103,15 +103,15 @@ class UiWordView : AppCompatTextView {
     }
 
     var errorText: String?
-        get() = mErrorText
-        set(value) {
+        @JvmName("getErrorText") get() = mErrorText
+        @JvmName("setErrorText") set(value) {
             mErrorText = value
             updateTextStyles()
         }
 
     var succeedText: String?
-        get() = mSucceedText
-        set(value) {
+        @JvmName("getSucceedText") get() = mSucceedText
+        @JvmName("setSucceedText") set(value) {
             mSucceedText = value
             updateTextStyles()
         }
