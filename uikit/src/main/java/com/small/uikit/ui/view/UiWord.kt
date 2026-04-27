@@ -26,6 +26,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatTextView
 import com.small.uikit.R
 import com.small.uikit.utils.WordUtils
+import androidx.core.content.withStyledAttributes
 
 
 /**
@@ -60,10 +61,10 @@ class UiWord: AppCompatTextView {
     }
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiWordView)
-        mTxtBgColor = typedArray.getColor(R.styleable.UiWordView_txt_bg_color, mTxtBgColor)
-        mTxtBackgroundCheck = typedArray.getBoolean(R.styleable.UiWordView_txt_bg_check, mTxtBackgroundCheck)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.UiWordView) {
+            mTxtBgColor = getColor(R.styleable.UiWordView_txt_bg_color, mTxtBgColor)
+            mTxtBackgroundCheck = getBoolean(R.styleable.UiWordView_txt_bg_check, mTxtBackgroundCheck)
+        }
     }
 
     /** 文本背景绘制初始化 */

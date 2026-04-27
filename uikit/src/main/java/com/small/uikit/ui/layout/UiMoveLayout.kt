@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.BounceInterpolator
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.small.uikit.R
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2023/6/19 星期一 16:28
@@ -48,23 +49,23 @@ class UiMoveLayout : ConstraintLayout {
         if (context == null || attrs == null) {
             return
         }
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseView)
-        //  背景
-        mBackgroundNormal = typedArray.getColor(R.styleable.BaseView_background_normal, mBackgroundNormal)
-        //  角度
-        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius, mCornerRadius)
-        mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_left, mCornerRadiusTopLeft)
-        mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
-        mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-        mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
-        //  边框
-        mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
-        mBorderColor = typedArray.getColor(R.styleable.BaseView_border_color, mBorderColor)
-        //  吸附
-        mCustomIsAttach = typedArray.getBoolean(R.styleable.BaseView_custom_is_Attach, false)
-        //  拖曳
-        mCustomIsDrag = typedArray.getBoolean(R.styleable.BaseView_custom_is_drag, false)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.BaseView) {
+            //  背景
+            mBackgroundNormal = getColor(R.styleable.BaseView_background_normal, mBackgroundNormal)
+            //  角度
+            mCornerRadius = getDimensionPixelSize(R.styleable.BaseView_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            //  边框
+            mBorderWidth = getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
+            mBorderColor = getColor(R.styleable.BaseView_border_color, mBorderColor)
+            //  吸附
+            mCustomIsAttach = getBoolean(R.styleable.BaseView_custom_is_Attach, false)
+            //  拖曳
+            mCustomIsDrag = getBoolean(R.styleable.BaseView_custom_is_drag, false)
+        }
     }
 
     private fun initDrawableSet() {

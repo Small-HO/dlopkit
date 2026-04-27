@@ -5,13 +5,14 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
 import com.small.uikit.R
+import androidx.core.content.withStyledAttributes
 
 
 /**
  * Created by small-ho on 2022/06 15:05
  * title: 基础帮助类
  */
-class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) : BaseHelperImpl(context) {
+class BaseHelper<T : View>(context: Context, private val view: T, attrs: AttributeSet?) : BaseHelperImpl {
 
     private var mBackgroundNormal = 0
     private var mCornerRadius = -1
@@ -32,19 +33,19 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
         if (context == null || attrs == null) {
             return
         }
-        val typedArray = view.context.obtainStyledAttributes(attrs, R.styleable.BaseView)
-        //  背景
-        mBackgroundNormal = typedArray.getColor(R.styleable.BaseView_background_normal, mBackgroundNormal)
-        //  角度
-        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius, mCornerRadius)
-        mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_left, mCornerRadiusTopLeft)
-        mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
-        mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-        mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
-        //  边框
-        mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
-        mBorderColor = typedArray.getColor(R.styleable.BaseView_border_color, mBorderColor)
-        typedArray.recycle()
+        view.context.withStyledAttributes(attrs, R.styleable.BaseView) {
+            //  背景
+            mBackgroundNormal = getColor(R.styleable.BaseView_background_normal, mBackgroundNormal)
+            //  角度
+            mCornerRadius = getDimensionPixelSize(R.styleable.BaseView_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = getDimensionPixelSize(R.styleable.BaseView_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = getDimensionPixelSize(R.styleable.BaseView_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            //  边框
+            mBorderWidth = getDimensionPixelSize(R.styleable.BaseView_border_width, mBorderWidth)
+            mBorderColor = getColor(R.styleable.BaseView_border_color, mBorderColor)
+        }
     }
 
     private fun initDrawableSet() {
@@ -65,6 +66,12 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
         //  边框
         shape.setStroke(mBorderWidth, mBorderColor)
         view.background = shape
+    }
+
+    override fun setBackgroundColorNormal(color: Int): BaseHelper<*> {
+        this.mBackgroundNormal = color
+        initDrawableSet()
+        return this
     }
 
 }

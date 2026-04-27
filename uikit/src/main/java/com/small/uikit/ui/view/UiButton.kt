@@ -12,14 +12,12 @@ import com.small.uikit.helper.UiHelper
  */
 class UiButton : AppCompatButton , UiHelper<BaseHelper<*>> {
 
-    private var mHelper: BaseHelper<*>? = null
+    override var helper: BaseHelper<*>? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs,0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        mHelper = BaseHelper(context, this, attrs)
+        helper = BaseHelper(context, this, attrs)
     }
-
-    override var helper: BaseHelper<*>? = mHelper
 
 }

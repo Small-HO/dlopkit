@@ -9,6 +9,7 @@ import android.view.ViewConfiguration
 import android.view.ViewGroup
 import com.small.uikit.R
 import kotlin.math.abs
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2022/08 17:55
@@ -43,14 +44,14 @@ class UiSplitView : ViewGroup , View.OnTouchListener {
         if (context == null || attrs == null) {
             return
         }
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiSplitView)
-        mViewId = typedArray.getResourceId(R.styleable.UiSplitView_view_id, mViewId)
-        if (mViewId == 0) {
-            throw IllegalArgumentException("必须添加分屏手柄控件")
+        context.withStyledAttributes(attrs, R.styleable.UiSplitView) {
+            mViewId = getResourceId(R.styleable.UiSplitView_view_id, mViewId)
+            if (mViewId == 0) {
+                throw IllegalArgumentException("必须添加分屏手柄控件")
+            }
+            mViewRatio = getFloat(R.styleable.UiSplitView_view_ratio, mViewRatio)
+            mTouchSlop = ViewConfiguration.get(context).scaledTouchSlop
         }
-        mViewRatio = typedArray.getFloat(R.styleable.UiSplitView_view_ratio, mViewRatio)
-        mTouchSlop = ViewConfiguration.get(context).scaledTouchSlop
-        typedArray.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

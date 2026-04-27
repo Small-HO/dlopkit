@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import com.small.uikit.R
 import kotlin.math.ceil
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2022/08 17:09
@@ -48,22 +49,22 @@ class UiProgressBar : View {
         if (context == null || attrs == null) {
             return
         }
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiProgressBar)
-        // 类型
-        mStyle = typedArray.getInteger(R.styleable.UiProgressBar_bar_style, mStyle)
-        // 角度
-        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiProgressBar_corner_radius, mCornerRadius)
-        // 进度条
-        mStrokeWidth = typedArray.getDimensionPixelOffset(R.styleable.UiProgressBar_bar_width, mStrokeWidth)
-        mBarBgColor = typedArray.getColor(R.styleable.UiProgressBar_bar_background, mBarBgColor)
-        mBarColor = typedArray.getColor(R.styleable.UiProgressBar_bar_color, mBarColor)
-        // 进度
-        mBarMax = typedArray.getInteger(R.styleable.UiProgressBar_bar_max, mBarMax)
-        mBarNum = typedArray.getInteger(R.styleable.UiProgressBar_bar_num, mBarNum)
-        // 文本
-        mTextColor = typedArray.getColor(R.styleable.UiProgressBar_bar_text_color, mTextColor)
-        mTextSize = typedArray.getDimensionPixelSize(R.styleable.UiProgressBar_bar_text_size, mTextSize)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.UiProgressBar) {
+            // 类型
+            mStyle = getInteger(R.styleable.UiProgressBar_bar_style, mStyle)
+            // 角度
+            mCornerRadius = getDimensionPixelSize(R.styleable.UiProgressBar_corner_radius, mCornerRadius)
+            // 进度条
+            mStrokeWidth = getDimensionPixelOffset(R.styleable.UiProgressBar_bar_width, mStrokeWidth)
+            mBarBgColor = getColor(R.styleable.UiProgressBar_bar_background, mBarBgColor)
+            mBarColor = getColor(R.styleable.UiProgressBar_bar_color, mBarColor)
+            // 进度
+            mBarMax = getInteger(R.styleable.UiProgressBar_bar_max, mBarMax)
+            mBarNum = getInteger(R.styleable.UiProgressBar_bar_num, mBarNum)
+            // 文本
+            mTextColor = getColor(R.styleable.UiProgressBar_bar_text_color, mTextColor)
+            mTextSize = getDimensionPixelSize(R.styleable.UiProgressBar_bar_text_size, mTextSize)
+        }
     }
 
     /** 圆形进度条 */

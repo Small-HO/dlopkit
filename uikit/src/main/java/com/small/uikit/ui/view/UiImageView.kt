@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.small.uikit.R
 import com.small.uikit.helper.DrawableHelper
 import kotlin.math.ceil
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2022/06 10:19
@@ -102,16 +103,16 @@ class UiImageView : AppCompatImageView {
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
         if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiImageView)
-            mIsCircle = typedArray.getBoolean(R.styleable.UiImageView_is_circle, mIsCircle)
-            mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiImageView_corner_radius, mCornerRadius)
-            mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiImageView_corner_radius_top_left, mCornerRadiusTopLeft)
-            mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiImageView_corner_radius_top_right, mCornerRadiusTopRight)
-            mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiImageView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-            mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiImageView_corner_radius_bottom_right, mCornerRadiusBottomRight)
-            mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.UiImageView_border_width, mBorderWidth)
-            mmBorderColor = typedArray.getColor(R.styleable.UiImageView_border_color, mmBorderColor)
-            typedArray.recycle()
+            context.withStyledAttributes(attrs, R.styleable.UiImageView) {
+                mIsCircle = getBoolean(R.styleable.UiImageView_is_circle, mIsCircle)
+                mCornerRadius = getDimensionPixelSize(R.styleable.UiImageView_corner_radius, mCornerRadius)
+                mCornerRadiusTopLeft = getDimensionPixelSize(R.styleable.UiImageView_corner_radius_top_left, mCornerRadiusTopLeft)
+                mCornerRadiusTopRight = getDimensionPixelSize(R.styleable.UiImageView_corner_radius_top_right, mCornerRadiusTopRight)
+                mCornerRadiusBottomLeft = getDimensionPixelSize(R.styleable.UiImageView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+                mCornerRadiusBottomRight = getDimensionPixelSize(R.styleable.UiImageView_corner_radius_bottom_right, mCornerRadiusBottomRight)
+                mBorderWidth = getDimensionPixelSize(R.styleable.UiImageView_border_width, mBorderWidth)
+                mmBorderColor = getColor(R.styleable.UiImageView_border_color, mmBorderColor)
+            }
         }
     }
 

@@ -8,18 +8,16 @@ import com.small.uikit.helper.UiHelper
 
 /**
  * Created by small-ho on 2022/06 10:08
- * title: 重定义LinearLayout样式
+ * title: 重定义RelativeLayout样式
  */
 class UiRelativeLayout : RelativeLayout , UiHelper<BaseHelper<*>> {
 
-    private var mHelper: BaseHelper<*>? = null
+    override var helper: BaseHelper<*>? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        mHelper = BaseHelper(context, this, attrs)
+        helper = BaseHelper(context, this, attrs)
     }
-
-    override var helper: BaseHelper<*>? = mHelper
 
 }
