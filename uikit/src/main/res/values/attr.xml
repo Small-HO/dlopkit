@@ -121,4 +121,94 @@
         <attr name="bar_color" />
     </declare-styleable>
 
+    <declare-styleable name="UiView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiTextView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiButton">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiConstraintLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiLinearLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiRelativeLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiTabLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiMoveLayout">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <attr name="background_normal" />
+        <attr name="border_width" />
+        <attr name="border_color" />
+        <attr name="custom_is_Attach" />
+        <attr name="custom_is_drag" />
+    </declare-styleable>
+
 </resources>
