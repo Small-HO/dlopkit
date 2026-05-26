@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import com.small.uikit.R
 import com.small.uikit.utils.WordUtils
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2022/07 17:40
@@ -58,28 +59,28 @@ class UiWordView : AppCompatTextView {
     }
 
     private fun initAttributeSet(context: Context, attrs: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiWordView)
-        //  背景
-        mBackgroundNormal = typedArray.getColor(R.styleable.UiWordView_background_normal, mBackgroundNormal)
-        //  角度
-        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiWordView_corner_radius, mCornerRadius)
-        mCornerRadiusTopLeft = typedArray.getDimensionPixelSize(R.styleable.UiWordView_corner_radius_top_left, mCornerRadiusTopLeft)
-        mCornerRadiusTopRight = typedArray.getDimensionPixelSize(R.styleable.UiWordView_corner_radius_top_right, mCornerRadiusTopRight)
-        mCornerRadiusBottomLeft = typedArray.getDimensionPixelSize(R.styleable.UiWordView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
-        mCornerRadiusBottomRight = typedArray.getDimensionPixelSize(R.styleable.UiWordView_corner_radius_bottom_right, mCornerRadiusBottomRight)
-        //  边框
-        mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.UiWordView_border_width, mBorderWidth)
-        mBorderColor = typedArray.getColor(R.styleable.UiWordView_border_color, mBorderColor)
-        //  开启取词
-        mIsCheck = typedArray.getBoolean(R.styleable.UiWordView_is_check, mIsCheck)
-        //  开启多选
-        mChoiceType = typedArray.getBoolean(R.styleable.UiWordView_choice_type, mChoiceType)
-        //  多颜色
-        mErrorColor = typedArray.getColor(R.styleable.UiWordView_error_color, mErrorColor)
-        mSucceedColor = typedArray.getColor(R.styleable.UiWordView_succeed_color, mSucceedColor)
-        mErrorText = typedArray.getString(R.styleable.UiWordView_error_text)
-        mSucceedText = typedArray.getString(R.styleable.UiWordView_succeed_text)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.UiWordView) {
+            //  背景
+            mBackgroundNormal = getColor(R.styleable.UiWordView_background_normal, mBackgroundNormal)
+            //  角度
+            mCornerRadius = getDimensionPixelSize(R.styleable.UiWordView_corner_radius, mCornerRadius)
+            mCornerRadiusTopLeft = getDimensionPixelSize(R.styleable.UiWordView_corner_radius_top_left, mCornerRadiusTopLeft)
+            mCornerRadiusTopRight = getDimensionPixelSize(R.styleable.UiWordView_corner_radius_top_right, mCornerRadiusTopRight)
+            mCornerRadiusBottomLeft = getDimensionPixelSize(R.styleable.UiWordView_corner_radius_bottom_left, mCornerRadiusBottomLeft)
+            mCornerRadiusBottomRight = getDimensionPixelSize(R.styleable.UiWordView_corner_radius_bottom_right, mCornerRadiusBottomRight)
+            //  边框
+            mBorderWidth = getDimensionPixelSize(R.styleable.UiWordView_border_width, mBorderWidth)
+            mBorderColor = getColor(R.styleable.UiWordView_border_color, mBorderColor)
+            //  开启取词
+            mIsCheck = getBoolean(R.styleable.UiWordView_is_check, mIsCheck)
+            //  开启多选
+            mChoiceType = getBoolean(R.styleable.UiWordView_choice_type, mChoiceType)
+            //  多颜色
+            mErrorColor = getColor(R.styleable.UiWordView_error_color, mErrorColor)
+            mSucceedColor = getColor(R.styleable.UiWordView_succeed_color, mSucceedColor)
+            mErrorText = getString(R.styleable.UiWordView_error_text)
+            mSucceedText = getString(R.styleable.UiWordView_succeed_text)
+        }
     }
 
     private fun initDrawableSet() {

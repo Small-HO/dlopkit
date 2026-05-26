@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.small.uikit.R
+import androidx.core.content.withStyledAttributes
 
 /**
  * Created by small-ho on 2024/3/12 11:51
@@ -45,14 +46,14 @@ class UiRangeSeekBar : View {
         if (context == null || attrs == null) {
             return
         }
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UiRangeSeekBar)
-        // 角度
-        mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.UiRangeSeekBar_corner_radius, mCornerRadius)
-        // 进度条
-        mStrokeWidth = typedArray.getDimensionPixelOffset(R.styleable.UiRangeSeekBar_bar_width, mStrokeWidth)
-        mBarBgColor = typedArray.getColor(R.styleable.UiRangeSeekBar_bar_background, mBarBgColor)
-        mBarColor = typedArray.getColor(R.styleable.UiRangeSeekBar_bar_color, mBarColor)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.UiRangeSeekBar) {
+            // 角度
+            mCornerRadius = getDimensionPixelSize(R.styleable.UiRangeSeekBar_corner_radius, mCornerRadius)
+            // 进度条
+            mStrokeWidth = getDimensionPixelOffset(R.styleable.UiRangeSeekBar_bar_width, mStrokeWidth)
+            mBarBgColor = getColor(R.styleable.UiRangeSeekBar_bar_background, mBarBgColor)
+            mBarColor = getColor(R.styleable.UiRangeSeekBar_bar_color, mBarColor)
+        }
     }
 
     /** 条形进度条 */
