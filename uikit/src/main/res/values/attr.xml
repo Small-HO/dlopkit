@@ -16,6 +16,8 @@
     <attr name="custom_is_Attach" format="boolean" />
     <!-- 是否可拖拽 -->
     <attr name="custom_is_drag" format="boolean" />
+    <!-- 是否圆形 -->
+    <attr name="is_circle" format="boolean" />
     <!-- 基础属性 -->
     <declare-styleable name="BaseView">
         <attr name="corner_radius" />
@@ -41,7 +43,7 @@
         <attr name="corner_radius_bottom_left" />
         <attr name="corner_radius_bottom_right" />
         <!-- 是否圆形 -->
-        <attr name="is_circle" format="boolean" />
+        <attr name="is_circle" />
         <!-- 边框 -->
         <attr name="border_width" />
         <attr name="border_color" />
@@ -54,7 +56,7 @@
         <attr name="corner_radius_bottom_left" />
         <attr name="corner_radius_bottom_right" />
         <!-- 是否圆形 -->
-        <attr name="is_circle" format="boolean" />
+        <attr name="is_circle" />
         <!-- 边框 -->
         <attr name="border_width" />
         <attr name="border_color" />
