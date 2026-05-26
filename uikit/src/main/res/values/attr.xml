@@ -46,7 +46,20 @@
         <attr name="border_width" />
         <attr name="border_color" />
     </declare-styleable>
-
+    <!-- ImageView属性 -->
+    <declare-styleable name="UiAnimImageView">
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+        <!-- 是否圆形 -->
+        <attr name="is_circle" format="boolean" />
+        <!-- 边框 -->
+        <attr name="border_width" />
+        <attr name="border_color" />
+        <attr name="auto_measure" format="boolean"/>
+    </declare-styleable>
     <!-- WordView属性 -->
     <declare-styleable name="UiWordView">
         <attr name="corner_radius" />
