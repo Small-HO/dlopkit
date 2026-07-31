@@ -4,9 +4,10 @@ import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
-import com.small.uikit.R
+import androidx.annotation.ColorInt
+import androidx.annotation.Px
 import androidx.core.content.withStyledAttributes
-
+import com.small.uikit.R
 
 /**
  * Created by small-ho on 2022/06 15:05
@@ -68,8 +69,72 @@ class BaseHelper<T : View>(context: Context, private val view: T, attrs: Attribu
         view.background = shape
     }
 
-    override fun setBackgroundColorNormal(color: Int): BaseHelper<*> {
-        this.mBackgroundNormal = color
+    override fun setBackgroundColorNormal(@ColorInt color: Int): BaseHelper<*> {
+        if (mBackgroundNormal == color) {
+            return this
+        }
+        mBackgroundNormal = color
+        initDrawableSet()
+        return this
+    }
+
+    override fun setCornerRadius(@Px radius: Int): BaseHelper<*> {
+        if (mCornerRadius == radius) {
+            return this
+        }
+        mCornerRadius = radius
+        initDrawableSet()
+        return this
+    }
+
+    override fun setCorners(
+        @Px topLeft: Int,
+        @Px topRight: Int,
+        @Px bottomLeft: Int,
+        @Px bottomRight: Int
+    ): BaseHelper<*> {
+        if (
+            mCornerRadius < 0 &&
+            mCornerRadiusTopLeft == topLeft &&
+            mCornerRadiusTopRight == topRight &&
+            mCornerRadiusBottomLeft == bottomLeft &&
+            mCornerRadiusBottomRight == bottomRight
+        ) {
+            return this
+        }
+        mCornerRadius = -1
+        mCornerRadiusTopLeft = topLeft
+        mCornerRadiusTopRight = topRight
+        mCornerRadiusBottomLeft = bottomLeft
+        mCornerRadiusBottomRight = bottomRight
+        initDrawableSet()
+        return this
+    }
+
+    override fun setBorder(@Px width: Int, @ColorInt color: Int): BaseHelper<*> {
+        if (mBorderWidth == width && mBorderColor == color) {
+            return this
+        }
+        mBorderWidth = width
+        mBorderColor = color
+        initDrawableSet()
+        return this
+    }
+
+    override fun setBorderWidth(@Px width: Int): BaseHelper<*> {
+        if (mBorderWidth == width) {
+            return this
+        }
+        mBorderWidth = width
+        initDrawableSet()
+        return this
+    }
+
+    override fun setBorderColor(@ColorInt color: Int): BaseHelper<*> {
+        if (mBorderColor == color) {
+            return this
+        }
+        mBorderColor = color
         initDrawableSet()
         return this
     }
